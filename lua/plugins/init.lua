@@ -10,7 +10,6 @@ return {
     end,
   },
 
-  -- =================================
   -- Notifications
   {
     "rcarriga/nvim-notify",
@@ -75,7 +74,6 @@ return {
     end,
   },
 
-  -- Renamer
   -- {
   --   "smjonas/inc-rename.nvim",
   --   config = function()

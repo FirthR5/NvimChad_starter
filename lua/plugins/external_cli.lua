@@ -1,5 +1,30 @@
 local plugins = {
 
+  --
+  -- dim inactive windows
+  {
+    "andreadev-it/shade.nvim",
+    config = function()
+      require("shade").setup {
+        exclude_filetypes = { "NvimTree" },
+      }
+    end,
+  },
+
+  -- pretty diagnostics panel
+  {
+    "folke/trouble.nvim",
+    cmd = { "Trouble", "TodoTrouble" },
+    dependencies = {
+      {
+        "folke/todo-comments.nvim",
+        opts = {},
+      },
+    },
+    config = function()
+      require("trouble").setup()
+    end,
+  },
   -- ==================================================================
   -- External software integration
   -- ==================================================================

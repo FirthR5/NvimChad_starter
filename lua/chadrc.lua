@@ -4,23 +4,14 @@
 local logos = require "core.MenuLogo"
 -- https://github.com/Alexis12119/nvim-config/blob/main/lua/chadrc.lua#L159
 local function concatWithSpace(list1, list2)
-  -- Creamos una nueva lista vacía para almacenar la concatenación
   local concatenatedList = {}
-
-  -- Iteramos sobre la primera lista y agregamos cada elemento a la nueva lista
   for _, line in ipairs(list1) do
     table.insert(concatenatedList, line)
   end
-
-  -- Agregamos un espacio en blanco en la nueva lista
   table.insert(concatenatedList, "")
-
-  -- Iteramos sobre la segunda lista y agregamos cada elemento a la nueva lista
   for _, line in ipairs(list2) do
     table.insert(concatenatedList, line)
   end
-
-  -- Devolvemos la lista concatenada con un espacio en blanco entre las dos listas
   return concatenatedList
 end
 

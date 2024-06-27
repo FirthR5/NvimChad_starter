@@ -88,24 +88,33 @@ local plugins = {
     config = function()
       vim.opt.foldmethod = "expr"
       vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      -- set nofoldenable                     --" Disable folding at startup.
-      -- vim.opt.foldmethod="indent"
-      vim.o.foldlevel = 0
-      -- vim.o.foldlevelstart = 0
+      vim.o.foldlevel = 1
+      vim.o.foldlevelstart = 2
       -- vim.o.foldnestmax = 0
-
-      -- https://andrewcourter.substack.com/p/code-folding-in-neovim
-      -- zc - Close (fold) the current fold under the cursor.
-      -- zo - Open (unfold) the current fold under the cursor.
-      -- za - Toggle between closing and opening the fold under the cursor.
-      -- zR - Open all folds in the current buffer.
-      -- zM - Close all folds in the current buffer.
     end,
     highlight = {
       enable = true,
     },
+    -- incremental_selection = {
+    --   enable = true,
+    --   keymaps = {
+    --     init_selection = "gnn",
+    --     node_incremental = "grn",
+    --     scope_incremental = "grc",
+    --     node_decremental = "grm",
+    --   },
+    -- },
     auto_install = true,
     sync_install = true,
+    autotag = { enable = true },
+    dependencies = {
+      {
+        "windwp/nvim-ts-autotag",
+        config = function()
+          require("nvim-ts-autotag").setup()
+        end,
+      },
+    },
   },
   -- https://github.com/neovim/nvim-lspconfig/issues/1494
   {
@@ -126,7 +135,6 @@ local plugins = {
         extensions = {
           live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
-            -- define mappings, e.g.
             mappings = { -- extend mappings
               i = {
                 ["<C-k>"] = lga_actions.quote_prompt(),
@@ -134,18 +142,15 @@ local plugins = {
                   postfix = " --iglob ",
                 },
                 -- freeze the current list and start a fuzzy search in the frozen list
-                -- ["<C-space>"] = actions.to_fuzzy_refine,
+                --["<C-space>"] = actions.to_fuzzy_refine,
               },
             },
-            -- ... also accepts theme settings, for example:
             -- theme = "dropdown", -- use dropdown theme
             -- theme = { }, -- use own theme spec
             -- layout_config = { mirror=true }, -- mirror preview pane
           },
         },
       }
-
-      -- don't forget to load the extension
       telescope.load_extension "live_grep_args"
     end,
   },

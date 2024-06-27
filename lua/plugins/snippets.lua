@@ -1,5 +1,18 @@
 local snippets = {
   --   -- ============================================================
+
+  {
+    "hrsh7th/nvim-cmp",
+    -- dependencies = {
+    --   -- ai based completion
+    --   {
+    --     "jcdickinson/codeium.nvim",
+    --     config = function()
+    --       require("codeium").setup {}
+    --     end,
+    --   },
+    -- },
+  },
   -- AutoClose Tags
 
   -- Comment code
@@ -8,6 +21,7 @@ local snippets = {
     lazy = false,
     config = function()
       require("Comment").setup {
+        -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
         formatters_by_ft = {
           lua = { "stylua" },
           -- Conform will run multiple formatters sequentially
@@ -46,6 +60,13 @@ local snippets = {
       require("luasnip.loaders.from_lua").load { paths = lua_snippets_my_path }
     end,
   },
+  -- {
+  --   "windwp/nvim-ts-autotag",
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require "custom.plugins.nvim-ts-autotag"
+  --   end,
+  -- },
 
   --   -- ========================================================================
   -- Lista de referencia para sacar los Snippets
