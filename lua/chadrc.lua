@@ -28,24 +28,16 @@ M.ui = {
       italic = true,
     },
     Pmenu = { bg = "white" },
-    -- MyHighlightGroup = { -- custom highlights are also allowed
-    --       fg = "red",
-    --       bg = "darker_black"
-    --    }
     ["@comment"] = { italic = true },
     Search = { fg = "black", bg = "NONE" },
     IncSearch = { fg = "black", bg = "NONE" },
     CurSearch = { fg = "black", bg = "NONE" },
-    -- Substitute = { fg = "black", bg = "NONE" },
     NvDashAscii = { bg = "NONE", fg = "NONE" },
     NvDashButtons = { bg = "NONE" }, -- This can make transparent the background
-
-    -- FoldColumn = { bg = "NONE" },
-    --LspReferenceRead = { link = "Underlined" },
-    --LspReferenceText = { link = "Underlined" },
-    --LspReferenceWrite = { link = "Underlined" },
-    --TblineFill = { link = "Normal" },
-    --NvimTreeRootFolder = { link = "NvimTreeFolderName" },
+    LspReferenceRead = { link = "Underlined" },
+    LspReferenceText = { link = "Underlined" },
+    LspReferenceWrite = { link = "Underlined" },
+    NvimTreeRootFolder = { link = "NvimTreeFolderName" },
   },
 
   tabufline = {
@@ -84,18 +76,8 @@ M.ui = {
     },
   },
   cheatsheet = { theme = "grid" }, -- simple/grid
-  --
-
-  -- https://github.com/NvChad/NvChad/discussions/2445
 }
 
---vim.api.nvim_set_hl(0, "NvDashAscii", { fg = "#FFFFFF", bg = "NONE" })
-
--- https://github.com/NvChad/NvChad/issues/1656
 M.ui.lsp = { signature = false }
 
 return M
-
--- MUST READ
--- https://linuxize.com/post/vim-find-replace/
--- https://learnvim.irian.to/basics/macros

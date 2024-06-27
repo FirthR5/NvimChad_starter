@@ -141,13 +141,8 @@ local plugins = {
                 ["<C-i>"] = lga_actions.quote_prompt {
                   postfix = " --iglob ",
                 },
-                -- freeze the current list and start a fuzzy search in the frozen list
-                --["<C-space>"] = actions.to_fuzzy_refine,
               },
             },
-            -- theme = "dropdown", -- use dropdown theme
-            -- theme = { }, -- use own theme spec
-            -- layout_config = { mirror=true }, -- mirror preview pane
           },
         },
       }
