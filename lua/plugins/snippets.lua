@@ -35,9 +35,9 @@ local snippets = {
 
       -- -- Configurar la ruta de snippets según el sistema operativo
       if sysname == "Windows_NT" then
-        lua_snippets_my_path = vim.fn.stdpath "config" .. "\\lua\\lua_snippets\\"
+        lua_snippets_my_path = vim.fn.stdpath "config" .. "\\lua\\snippets\\"
       else
-        lua_snippets_my_path = vim.fn.stdpath "config" .. "/lua/lua_snippets/"
+        lua_snippets_my_path = vim.fn.stdpath "config" .. "/lua/snippets/"
       end
       -- load snippets from path/of/your/nvim/config/my-cool-snippets
 
