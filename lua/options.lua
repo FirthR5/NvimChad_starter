@@ -16,4 +16,4 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 -- vim.opt.inccommand = "split"
 vim.opt.breakindent = true
-vim.opt.wrap = false
+vim.opt.wrap = true

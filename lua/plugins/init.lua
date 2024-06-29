@@ -73,30 +73,5 @@ return {
     end,
   },
 
-  -- {
-  --   "smjonas/inc-rename.nvim",
-  --   config = function()
-  --     require("inc_rename").setup()
-  --   end,
-  -- },
-  -- https://github.com/mg979/vim-visual-multi
-  -- https://www.reddit.com/r/neovim/comments/yizrri/nvim_alternative_for_vimvisualmulti/
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   branch = "master",
-  --   lazy = false,
-  --   init = function()
-  --     vim.g.VM_Maps = {
-  --       ["Find Under"] = "<C-l>"
-  --     }
-  --   end
-  -- },
-  -- -- https://github.com/anuvyklack/pretty-fold.nvim
-  --   use{ 'anuvyklack/pretty-fold.nvim',
-  --      config = function()
-  --         require('pretty-fold').setup()
-  --      end
-  --   }
-
   -- TODO: Add NeoTests for HTTP re
 }

@@ -19,7 +19,7 @@ end
 local M = {}
 
 M.ui = {
-  theme = "catppuccin",
+  theme = "rxyhn",
   theme_toggle = { "mountain", "one_light" },
   transparency = true,
 
