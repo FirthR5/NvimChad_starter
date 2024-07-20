@@ -18,15 +18,32 @@ luasnip.add_snippets("lua", {
   }),
   s("lsnippet", {
     t 's("', -- Comienza la definición del snippet
-    i(1), -- Inserta el cursor aquí
+    t " ", --i(1), -- Inserta el cursor aquí
     t '", {', -- Continúa la definición del snippet
     t { "", "" },
-    i(0), -- Inserta el cursor aquí
+    t " ", --i(0), -- Inserta el cursor aquí
     t { "", "})" }, -- Finaliza la definición del snippet
   }),
 })
 
 -- https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#functionnode
+--[[ local function fn(
+  args,     -- text from i(2) in this example i.e. { { "456" } }
+  parent,   -- parent snippet or parent node
+  user_args -- user_args from opts.user_args 
+)
+   return '[' .. args[1][1] .. user_args .. ']'
+end 
+
+s("trig", {
+  i(1), t '<-i(1) ',
+  f(fn,  -- callback (args, parent, user_args) -> string
+    {2}, -- node indice(s) whose text is passed to fn, i.e. i(2)
+    { user_args = { "user_args_value" }} -- opts
+  ),
+  t ' i(2)->', i(2), t '<-i(2) i(0)->', i(0)
+}) ]]
+
 
 -- local f = ls.function_node
 -- local c = ls.choice_node

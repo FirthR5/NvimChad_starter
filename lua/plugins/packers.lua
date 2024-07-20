@@ -33,6 +33,8 @@ local plugins = {
         -- "ts-standard",
         ---  "typescript-language-server",--
         "vue-language-server",
+        "volar",
+        -- https://www.reddit.com/r/neovim/comments/12e6a7j/volar_with_vuejs_3/
         "angular-language-server", -- Dot Net
         "csharp-language-server",
         "csharpier",

@@ -29,3 +29,4 @@ map("n", "<leader>tt", "<cmd>Telescope<CR>", { desc = "Open Telescope" })
 map("n", "<leader>mt", "<cmd>Telescope<CR>", { desc = "Open Telescope" })
 
 map("n", "<leader>ml", "<cmd>Lazy<CR>", { desc = "Open Lazy Packer" })
+map("n", "<space>mp", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", { noremap = true, silent = true })
