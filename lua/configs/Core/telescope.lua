@@ -3,10 +3,21 @@ local lga_actions = require "telescope-live-grep-args.actions"
 
 local options = {
   extensions = {
+    aerial = {
+      -- Display symbols as <root>.<parent>.<symbol>
+      show_nesting = {
+        ["_"] = false, -- This key will be the default
+        json = true, -- You can set the option for specific filetypes
+        yaml = true,
+      },
+      -- Available modes: symbols, lines, both
+      show_columns = "both",
+    },
     live_grep_args = {
       auto_quoting = true,
       mappings = {
         i = {
+          -- https://github.com/nvim-telescope/telescope.nvim
           ["<C-k>"] = lga_actions.quote_prompt(),
           ["<C-i>"] = lga_actions.quote_prompt {
             postfix = " --iglob ",
@@ -27,6 +38,8 @@ local M = {}
 function M.Setup()
   telescope.setup(options)
   telescope.load_extension "live_grep_args"
+  -- telescope.load_extension "aerial"
+  require("telescope").load_extension "aerial"
 end
 M.dependencies = {
   {
