@@ -5,7 +5,6 @@ local luasnip = require "luasnip"
 local s = luasnip.snippet
 -- local sn = ls.snippet_node
 --local isn = ls.indent_snippet_node
-
 local t = luasnip.text_node -- Static Text
 local i = luasnip.insert_node -- Text Can Be Edited
 

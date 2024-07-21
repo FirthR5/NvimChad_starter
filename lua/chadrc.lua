@@ -1,7 +1,7 @@
 -- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
 
-local logos = require "core.MenuLogo"
+local logos = require "opts.MenuLogo"
 -- https://github.com/Alexis12119/nvim-config/blob/main/lua/chadrc.lua#L159
 local function concatWithSpace(list1, list2)
   local concatenatedList = {}
@@ -19,7 +19,7 @@ end
 local M = {}
 
 M.ui = {
-  theme = "rxyhn",
+  theme = "catppuccin", -- "rxyhn",
   theme_toggle = { "mountain", "one_light" },
   transparency = true,
 
@@ -28,15 +28,23 @@ M.ui = {
       italic = true,
     },
     Pmenu = { bg = "white" },
+    -- MyHighlightGroup = { -- custom highlights are also allowed
+    --       fg = "red",
+    --       bg = "darker_black"
+    --    }
     ["@comment"] = { italic = true },
     Search = { fg = "black", bg = "NONE" },
     IncSearch = { fg = "black", bg = "NONE" },
     CurSearch = { fg = "black", bg = "NONE" },
+    -- Substitute = { fg = "black", bg = "NONE" },
     NvDashAscii = { bg = "NONE", fg = "NONE" },
     NvDashButtons = { bg = "NONE" }, -- This can make transparent the background
+
+    -- FoldColumn = { bg = "NONE" },
     LspReferenceRead = { link = "Underlined" },
     LspReferenceText = { link = "Underlined" },
     LspReferenceWrite = { link = "Underlined" },
+    --TblineFill = { link = "Normal" },
     NvimTreeRootFolder = { link = "NvimTreeFolderName" },
   },
 
@@ -78,6 +86,13 @@ M.ui = {
   cheatsheet = { theme = "grid" }, -- simple/grid
 }
 
+--vim.api.nvim_set_hl(0, "NvDashAscii", { fg = "#FFFFFF", bg = "NONE" })
+
+-- https://github.com/NvChad/NvChad/issues/1656
 M.ui.lsp = { signature = false }
 
 return M
+
+-- MUST READ
+-- https://linuxize.com/post/vim-find-replace/
+-- https://learnvim.irian.to/basics/macros

@@ -61,6 +61,7 @@ dapui.setup {
   render = { indent = 2 },
 }
 
+
 -- Setup Virtual Text
 require("nvim-dap-virtual-text").setup {}
 
@@ -80,6 +81,7 @@ local hint = [[
  _x_: Stop Debbuging ^
  ^^                                                      _<Esc>_
 ]]
+
 
 hydra {
   name = "dap",
