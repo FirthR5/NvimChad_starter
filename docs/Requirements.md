@@ -1,9 +1,18 @@
 
 # LSP 
+Secciones que si funcionan
+```sh
+npm install -g pyright
+
+npm install -g vls
+
+```
+
+
+Prueba 
 
 
 ```sh
-npm install -g vls
 npm -g install @angular/language-server
 npm -g install @angular/language-service
 npm install -g diagnostic-languageserver
