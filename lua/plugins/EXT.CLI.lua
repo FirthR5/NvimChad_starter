@@ -1,4 +1,3 @@
-local config_shade = require "configs.EXT.shade"
 local config_trouble = require "configs.EXT.trouble"
 
 local plugins = {
@@ -15,15 +14,6 @@ local plugins = {
   },
 
   -- ==================================================================
-
-  -- dim inactive windows
-  {
-    "andreadev-it/shade.nvim",
-    config = function()
-      config_shade.setup()
-    end,
-  },
-
   -- pretty diagnostics panel
   {
     "folke/trouble.nvim",
