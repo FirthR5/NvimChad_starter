@@ -2,10 +2,10 @@ local inst_mason = {
 
   -- ============================================================
   -- Defaults SHELL
-  --"lua-language-server",
-  -- "luaformatter",
-  -- "luacheck",
-  -- "stylua",
+  "lua-language-server",
+  "luaformatter",
+  "luacheck",
+  "stylua",
   -- "bash-lsp/bash-language-server",
   -- shellcheck
   -- "tree-sitter-cli",
@@ -14,7 +14,7 @@ local inst_mason = {
   -- Database
   "sql-formatter",
   "sqlls",
-  -- "sqlfmt",
+  "sqlfmt",
   --"sqlfluff",
   -- ============================================================
   -- Web Dev Basics
@@ -74,7 +74,7 @@ local inst_mason = {
   "xmlformatter",
   "jsonlint",
   "json-lsp",
-  "deno",
+  --"deno",
 
   -- ===================================================
 }

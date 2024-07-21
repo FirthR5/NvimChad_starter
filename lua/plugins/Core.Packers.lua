@@ -30,9 +30,9 @@ local plugins = {
     sync_install = config_treesitter.sync_install(),
     autotag = config_treesitter.autotag(),
     dependencies = config_treesitter.dependencies(),
-    indent = {
-      enable = true,
-    },
+    -- indent = {
+    --   enable = true,
+    -- },
   },
 
   {
