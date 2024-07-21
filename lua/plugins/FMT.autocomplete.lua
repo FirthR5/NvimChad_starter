@@ -1,27 +1,26 @@
 return {
-  {
-    "neoclide/coc.nvim",
-    branch = "release",
-    lazy = false,
-  },
   -- {
-  --   "smjonas/inc-rename.nvim",
-  --   config = function()
-  --     require("inc_rename").setup()
-  --   end,
+  --   "neoclide/coc.nvim",
+  --   branch = "release",
+  --   lazy = false,
   -- },
+  {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("configs.FMT.inc_rename")
+    end,
+  },
   -- https://github.com/mg979/vim-visual-multi
   -- https://www.reddit.com/r/neovim/comments/yizrri/nvim_alternative_for_vimvisualmulti/
   -- ============================================================
   {
     "hrsh7th/nvim-cmp",
-    -- dependencies = {
-    --   -- ai based completion
-    --   {
-    --     "jcdickinson/codeium.nvim",
-    --     config = function()  require("codeium").setup {}   end,
-    --   },
-    -- },
+    dependencies = require("opts.deps.nvim_cmp"),
+
+    config = function()
+      require("configs.FMT.nvim_cmp")
+    end
+
   },
 
   {
