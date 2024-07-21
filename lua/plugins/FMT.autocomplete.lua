@@ -1,7 +1,9 @@
 return {
-  --   {
-  --       "neoclide/coc.nvim"
-  --   },
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    lazy = false,
+  },
   -- {
   --   "smjonas/inc-rename.nvim",
   --   config = function()
