@@ -6,7 +6,7 @@ local inst_mason = {
   "luaformatter",
   "luacheck",
   "stylua",
-  "bash-lsp/bash-language-server",
+  -- "bash-lsp/bash-language-server",
   -- shellcheck
   -- "tree-sitter-cli",
 
@@ -14,7 +14,8 @@ local inst_mason = {
   -- Database
   "sql-formatter",
   "sqlls",
-
+  -- "sqlfmt",
+  --"sqlfluff",
   -- ============================================================
   -- Web Dev Basics
   "standardjs",
@@ -33,7 +34,7 @@ local inst_mason = {
   "angular-language-server",
   "prettier",
   "some-sass-language-server",
-  -- css-lsp,
+  "css-lsp",
   -- --tailwindcss-language-server
 
   -- ============================================================
