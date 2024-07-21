@@ -15,7 +15,9 @@ local servers = {
 
   -- ===================================================
   -- Database
-
+  "sqlls",
+  -- "sqlfmt",
+  -- "sqlfluff",
   -- ============================================================
   -- Web Dev Basics
   "html",
@@ -45,9 +47,11 @@ local servers = {
 
   -- ============================================================
   -- Other Languages
-  "kotlin_language_server", --"omnisharp", "texlab"i
-  --phpactor, sqlls,
+  "kotlin_language_server",
+  -- "texlab"i
+  --phpactor,
   -- "pyright",
+  --
 
   -- ============================================================
   -- Text Processors
@@ -66,6 +70,26 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- lspconfig.sqlfmt.setup {
+--   cmd = { "sqlfmt" }, -- Comando para ejecutar sqlfmt
+--   filetypes = { "sql" }, -- Tipos de archivo que usan sqlfmt
+--   root_dir = lspconfig.util.root_pattern(".git", "."),
+-- }
+
+-- -- Configuración para sqlfmt
+-- lspconfig.sqlfmt.setup {
+--   cmd = { "sqlfmt" }, -- Comando para ejecutar sqlfmt
+--   filetypes = { "sql" }, -- Tipos de archivo que usan sqlfmt
+--   root_dir = lspconfig.util.root_pattern(".git", "."),
+-- }
+--
+-- -- Configuración para sqlfluff
+-- lspconfig.sqlfluff.setup {
+--   cmd = { "sqlfluff", "lint" }, -- Comando para ejecutar sqlfluff
+--   filetypes = { "sql" }, -- Tipos de archivo que usan sqlfluff
+--   root_dir = lspconfig.util.root_pattern(".git", "."),
+-- }
 
 -- typescript
 -- lspconfig.tsserver.setup {
