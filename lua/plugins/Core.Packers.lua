@@ -7,6 +7,7 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      require("nvchad.configs.lspconfig").defaults()
       require "configs.Core.lspconfig"
     end,
   },
@@ -29,6 +30,9 @@ local plugins = {
     sync_install = config_treesitter.sync_install(),
     autotag = config_treesitter.autotag(),
     dependencies = config_treesitter.dependencies(),
+    indent = {
+      enable = true,
+    },
   },
 
   {

@@ -2,13 +2,14 @@ local TreeSitter_install = {
   -- ====================================================
   -- Defaults SHELL
   "vim",
-  "lua",
+  -- "lua",
   "vimdoc",
+  "luadoc",
   "gitignore",
 
   -- ===================================================
   -- Database
-
+  "sql",
   -- ============================================================
   -- Web Dev Basics
   "html",
@@ -17,7 +18,7 @@ local TreeSitter_install = {
 
   -- ============================================================
   -- Web Dev Front Frameworks
-  -- "typescript",
+  "typescript",
   "tsx",
   "angular",
   "vue",
@@ -47,13 +48,19 @@ local TreeSitter_install = {
   -- ============================================================
   -- Text Processors
   "markdown",
+  "markdown_inline",
   "toml",
   "yaml",
   "xml",
   "csv",
+  "http",
+  "jsdoc",
   "json",
 
   -- ===================================================
+  "git_config",
+  "git_rebase",
+  "gitcommit",
 }
 
 return TreeSitter_install

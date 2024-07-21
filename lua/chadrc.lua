@@ -23,6 +23,9 @@ M.ui = {
   theme_toggle = { "mountain", "one_light" },
   transparency = true,
 
+  lsp = {
+    semantic_tokens = true,
+  },
   hl_override = {
     Comment = {
       italic = true,

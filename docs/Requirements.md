@@ -4,6 +4,13 @@
 
 ```sh
 npm install -g vls
+npm -g install @angular/language-server
+npm -g install @angular/language-service
+npm install -g diagnostic-languageserver
+npm install -g typescript
+npm install @angular/language-service@next typescript  @angular/language-server
+
+npm --save-dev install typescript
 
 ```
 

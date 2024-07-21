@@ -2,10 +2,10 @@ local inst_mason = {
 
   -- ============================================================
   -- Defaults SHELL
-  "lua-language-server",
-  "luaformatter",
-  "luacheck",
-  "stylua",
+  --"lua-language-server",
+  -- "luaformatter",
+  -- "luacheck",
+  -- "stylua",
   -- "bash-lsp/bash-language-server",
   -- shellcheck
   -- "tree-sitter-cli",
@@ -27,16 +27,17 @@ local inst_mason = {
   -- ============================================================
   -- Web Dev Front Frameworks
   -- "ts-standard",
-  ---  "typescript-language-server",--
+  "typescript-language-server", --
   "vue-language-server",
   --"volar",
   -- https://www.reddit.com/r/neovim/comments/12e6a7j/volar_with_vuejs_3/
-  "angular-language-server",
-  "prettier",
-  "some-sass-language-server",
-  "css-lsp",
-  -- --tailwindcss-language-server
+  --"angular-language-server",
 
+  "prettier",
+  "eslint-lsp",
+  "some-sass-language-server",
+  "tailwindcss-language-server",
+  "eslint_d",
   -- ============================================================
   --
   -- Backend
@@ -71,6 +72,9 @@ local inst_mason = {
   "yamlfix",
   "yaml-language-server",
   "xmlformatter",
+  "jsonlint",
+  "json-lsp",
+  "deno",
 
   -- ===================================================
 }
