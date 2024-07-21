@@ -3,14 +3,14 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+-- local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
 local lspconfig = require "lspconfig"
 
 local servers = {
   -- ===================================================
   -- Defaults SHELL
   "bashls", -- npm i -g bash-language-server
-  -- "lua_ls",
+  "lua_ls",
   "vimls",
 
   -- ===================================================
@@ -50,7 +50,7 @@ local servers = {
   "kotlin_language_server",
   -- "texlab"i
   --phpactor,
-  -- "pyright",
+  "pyright",
   --
 
   -- ============================================================
@@ -58,28 +58,28 @@ local servers = {
   "jsonls",
   -- "yamlls",
   -- "r_language_server"
-  "azure_pipelines_ls",
-  "clangd",
+  --"azure_pipelines_ls",
+  --"clangd",
   -- ===================================================
 }
-local on_attach2 = function(client, bufnr)
-  require("plugins.configs.lspconfig").on_attach(client, bufnr)
-
-  -- refresh codelens when buffer enters and buffer is saved
-  -- insertleave textchanged
-  vim.api.nvim_create_autocmd({ "bufenter", "bufwritepre" }, {
-    buffer = bufnr,
-    callback = vim.lsp.codelens.refresh,
-  })
-
-  -- trigger code lens
-  vim.api.nvim_exec_autocmds("user", { pattern = "lspattached" })
-end
-
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+-- local on_attach2 = function(client, bufnr)
+--   require("plugins.configs.lspconfig").on_attach(client, bufnr)
+--
+--   -- refresh codelens when buffer enters and buffer is saved
+--   -- insertleave textchanged
+--   vim.api.nvim_create_autocmd({ "bufenter", "bufwritepre" }, {
+--     buffer = bufnr,
+--     callback = vim.lsp.codelens.refresh,
+--   })
+--
+--   -- trigger code lens
+--   vim.api.nvim_exec_autocmds("user", { pattern = "lspattached" })
+-- end
+--
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true,
+-- }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -107,15 +107,15 @@ end
 --   capabilities = capabilities,
 -- }
 -- typescript
-lspconfig.tsserver.setup {
-  on_attach = on_attach2,
-  on_init = on_init,
-  capabilities = capabilities,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server.cmd", "--stdio" },
-}
-
-local project_library_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver"
+-- lspconfig.tsserver.setup {
+--   on_attach = on_attach2,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+--   cmd = { "typescript-language-server.cmd", "--stdio" },
+-- }
+--
+-- local project_library_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver"
 -- local cmd =
 --   { "ngserver", "--stdio", "--tsProbeLocations", project_library_path, "--ngProbeLocations", project_library_path }
 --
