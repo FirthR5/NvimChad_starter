@@ -1,0 +1,12 @@
+-- ==================================================================
+-- TODO: CHECK OUT
+-- {--https://github.com/sindrets/diffview.nvim?tab=readme-ov-file
+--   "sindrets/diffview.nvim",
+--
+-- },
+-- .dap
+
+-- obsidian
+-- zenmode
+-- codesnap
+-- harpoon
