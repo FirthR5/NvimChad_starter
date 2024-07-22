@@ -29,7 +29,7 @@ M = {
   version = "v2.*",
   after = "nvim-cmp",
   enable_autosnippets = true,
-  dependencies = { "rafamadriz/friendly-snippets" },
+  dependencies = { "rafamadriz/friendly-snippets" }, -- Default by NvChad
   build = "make install_jsregexp",
   config = function()
     MySetup()

@@ -5,6 +5,11 @@ local keymaps = require "configs.TERM.keymaps"
 local legendary = require "configs.TERM.legendary"
 
 return {
+  -- ==================================================================
+  -- Default by NvChad
+  -- ==================================================================
+
+  -- ==================================================================
   {
     "rcarriga/nvim-notify",
     lazy = false,
@@ -18,7 +23,7 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = config_noice.dependencies(),
-    config = config_noice.setup(),
+    config = config_noice.setup,--(),
   },
   {
     "stevearc/aerial.nvim",

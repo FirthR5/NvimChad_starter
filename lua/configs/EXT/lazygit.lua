@@ -15,7 +15,7 @@ end
 -- optional for floating window border decoration
 function Dependencies()
   return {
-    "nvim-lua/plenary.nvim",
+    "nvim-lua/plenary.nvim", -- Default by NvChad
   }
 end
 -- setting the keybinding for LazyGit with 'keys' is recommended in

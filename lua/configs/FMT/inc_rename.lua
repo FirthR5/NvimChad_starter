@@ -8,7 +8,7 @@ local M = {}
 M = {
   "smjonas/inc-rename.nvim",
   lazy = true,
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim" }, -- Default by NvChad
   config = function()
     require("inc_rename").setup(options)
     vim.keymap.set("n", "<leader>rr", ":IncRename ", { silent = true })

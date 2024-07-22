@@ -4,6 +4,12 @@ local config_treesitter = require "configs.Core.tree-sitter"
 -- local config_telescope = require "configs.Core.telescope"
 
 local plugins = {
+  -- ==================================================================
+  -- Default by NvChad
+  -- ==================================================================/
+  -- - nvim-web-devicons.nvim
+  -- - nvim-tree.lua
+  -- - which-key.nvim
   {
     "neovim/nvim-lspconfig",
     config = function()
