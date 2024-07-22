@@ -2,7 +2,7 @@ local TreeSitter_install = {
   -- ====================================================
   -- Defaults SHELL
   "vim",
-  -- "lua",
+  "lua",
   "vimdoc",
   "luadoc",
   "bash",
