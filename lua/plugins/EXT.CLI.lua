@@ -1,43 +1,35 @@
-local config_trouble = require "configs.EXT.trouble"
+local trouble = require "configs.EXT.trouble"
+local ranger = require "configs.EXT.ranger"
+local lazygit = require "configs.EXT.lazygit"
+local gitsigns = require "configs.EXT.gitsigns"
+local dadbotUI = require "configs.EXT.dadbotUI"
+local keymaps = require "configs.TERM.keymaps"
+local legendary = require "configs.TERM.legendary"
+local web_tools = require "configs.EXT.web_tools"
 
 local plugins = {
-
   -- ==================================================================
   -- External software integration
   -- ==================================================================
-  -- RANGER
-  {
-    "kelly-lin/ranger.nvim",
-    config = function()
-      require "configs.EXT.ranger"
-    end,
-  },
-
+  ranger,
+  trouble,
   -- ==================================================================
-  -- pretty diagnostics panel
-  {
-    "folke/trouble.nvim",
-    cmd = { "Trouble", "TodoTrouble" },
-    dependencies = config_trouble.dependencies(),
-    config = function()
-      config_trouble.setup()
-    end,
-  },
-
+  -- Lazy GIT
+  lazygit,
+  gitsigns,
+  -- Rest Nvim
+  --dadbotUI,
+  -- keymaps,
+  legendary,
+  web_tools,
   -- ==================================================================
-  --{
-  --'VonHeikemen/fine-cmdline.nvim',
-  --requires = {
-  --{'MunifTanjim/nui.nvim'}
-  --}
-  --},
   -- TODO: CHECK OUT
-  -- keymaps
-  -- plugins.misc
-  -- .lualine
+  -- {--https://github.com/sindrets/diffview.nvim?tab=readme-ov-file
+  --   "sindrets/diffview.nvim",
+  --
+  -- },
   -- .dap
 
-  -- trouble
   -- obsidian
   -- zenmode
   -- codesnap

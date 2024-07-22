@@ -8,11 +8,8 @@ ls.add_snippets("vue", {
   ),
 })
 
--- Map "Ctrl + p" (in insert mode)
--- to expand snippet and jump through fields.
 vim.keymap.set("i", "<c-p>", function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
   end
 end)
-

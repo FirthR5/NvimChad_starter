@@ -37,9 +37,16 @@ local options = {
 local M = {}
 function M.Setup()
   telescope.setup(options)
+  -- ====================================================
   telescope.load_extension "live_grep_args"
+  -- ====================================================
   -- telescope.load_extension "aerial"
   require("telescope").load_extension "aerial"
+  -- ====================================================
+  -- Key Maps
+  -- require("telescope").load_extension "keymaps_nvim"
+  --require("telescope").extensions.keymaps_nvim.keymaps_nvim()
+  -- ====================================================
 end
 M.dependencies = {
   {

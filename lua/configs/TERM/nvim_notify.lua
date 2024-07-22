@@ -2,7 +2,7 @@ local M = {}
 
 local options = {
   background_colour = "#58afe8",
-} -- require('telescope').extensions.notify.setup()
+}
 
 function M.setup()
   vim.opt.termguicolors = true

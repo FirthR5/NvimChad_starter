@@ -1,4 +1,3 @@
--- NOTE: NvDash Headers
 math.randomseed(os.time())
 local headers = {
   default = {

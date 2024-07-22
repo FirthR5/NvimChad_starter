@@ -1,11 +1,9 @@
-local M = {}
-
-function M.setup()
+function MySetup()
   -- Aquí puedes añadir configuración adicional si es necesario
   -- require "configs.EXT."
 end
 
-function M.cmd()
+function Cmd()
   return {
     "LazyGit",
     "LazyGitConfig",
@@ -15,17 +13,25 @@ function M.cmd()
   }
 end
 -- optional for floating window border decoration
-function M.dependencies()
+function Dependencies()
   return {
     "nvim-lua/plenary.nvim",
   }
 end
 -- setting the keybinding for LazyGit with 'keys' is recommended in
 -- order to load the plugin when the command is run for the first time
-function M.keys()
+function MyKeys()
   return {
     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
   }
 end
 
+local M = {}
+M = {
+  "kdheepak/lazygit.nvim",
+  cmd = Cmd(),
+  dependencies = Dependencies(),
+  keys = MyKeys(),
+  -- config = require("configs.EXT.lazygit").setup(),
+}
 return M

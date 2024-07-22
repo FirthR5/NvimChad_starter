@@ -1,9 +1,21 @@
-options = {
+local options = {
   presets = { inc_rename = true },
-  --input_buffer_type = "dressing",
+  -- input_buffer_type = "dressing",
 }
-require("inc_rename").setup(options)
-vim.keymap.set("n", "<leader>rr", ":IncRename ")
+
+local M = {}
+
+M = {
+  "smjonas/inc-rename.nvim",
+  lazy = true,
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+    require("inc_rename").setup(options)
+    vim.keymap.set("n", "<leader>rr", ":IncRename ", { silent = true })
+  end,
+}
+
+return M
 
 -- vim.keymap.set("n", "<leader>rr", function()
 --   return ":IncRename " .. vim.fn.expand("<cword>")

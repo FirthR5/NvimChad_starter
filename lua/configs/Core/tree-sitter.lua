@@ -1,16 +1,6 @@
-local M = {}
+local inst_TS = require "opts.inst.TreeSitter"
 
--- function M.inst_TS()
---   return require "opts.inst.TreeSitter"
--- end
-
--- function M.opts()
---   return {
---     ensure_installed = M.inst_TS(),
---   }
--- end
-
-function M.setup()
+function setup()
   vim.opt.foldmethod = "expr"
   vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
   vim.o.foldlevel = 4
@@ -26,7 +16,7 @@ function M.setup()
   -- zM - Close all folds in the current buffer.
 end
 
-function M.highlight()
+function highlight()
   return {
     enable = true,
     use_languagetree = true,
@@ -42,24 +32,24 @@ end
 --     node_decremental = "grm",
 --   },
 -- },
-function M.auto_install()
+function auto_install()
   return true
 end
 
-function M.sync_install()
+function sync_install()
   return true
 end
 
-function M.autotag()
+function autotag()
   return {
     enable = true,
   }
 end
-function M.events()
+function events()
   return { "BufRead", "BufWinEnter", "BufNewFile" }
 end
 
-function M.dependencies()
+function dependencies()
   return {
     {
       "windwp/nvim-ts-autotag",
@@ -71,4 +61,22 @@ function M.dependencies()
 end
 -- --ft = require("config.lsp").filetypes_with_lsp(),
 -- function M.fts()
+
+local M = {}
+M = {
+  "nvim-treesitter/nvim-treesitter",
+  opts = { ensure_installed = inst_TS },
+  event = events(),
+  -- ft=config_treesitter.fts(),
+  highlight = highlight(),
+  auto_install = auto_install(),
+  sync_install = sync_install(),
+  autotag = autotag(),
+  dependencies = dependencies(),
+  config = setup(),
+  -- indent = {
+  --   enable = true,
+  -- },
+}
+
 return M

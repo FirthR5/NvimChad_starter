@@ -1,24 +1,29 @@
+local lua_snippets = require "configs.FMT.lua_snippets"
+local commment = require "configs.FMT.comment"
+local colorizer = require "configs.FMT.colorizer"
+local conform = require "configs.FMT.conform"
+local coc = require "configs.FMT.coc"
+local cmp = require "configs.FMT.nvim_cmp"
+local inc_rename = require "configs.FMT.inc_rename"
+local tsAutoTag = require "configs.FMT.tsAutoTag"
+local lspkind = require "configs.FMT.lspkind"
+
 local snippets = {
   -- ============================================================
   -- Formatter
-  {
-    -- https://www.josean.com/posts/neovim-linting-and-formatting
-    "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
+  conform,
+  colorizer,
+  lua_snippets,
+  commment,
+  coc,
+  cmp,
+  inc_rename,
+  --lspkind,
+  --tsAutoTag,
 
   -- ============================================================
-  -- Colorizer
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
-
+  -- -- https://github.com/mg979/vim-visual-multi
+  -- https://www.reddit.com/r/neovim/comments/yizrri/nvim_alternative_for_vimvisualmulti/
   -- Cursor
   -- {
   --   "mg979/vim-visual-multi",

@@ -85,9 +85,6 @@ M.ui = {
   },
   cheatsheet = { theme = "grid" }, -- simple/grid
 }
-
---vim.api.nvim_set_hl(0, "NvDashAscii", { fg = "#FFFFFF", bg = "NONE" })
-
 -- https://github.com/NvChad/NvChad/issues/1656
 M.ui.lsp = { signature = false }
 
