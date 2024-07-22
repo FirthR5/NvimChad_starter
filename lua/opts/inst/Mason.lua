@@ -31,7 +31,7 @@ local inst_mason = {
   "vue-language-server",
   --"volar",
   -- https://www.reddit.com/r/neovim/comments/12e6a7j/volar_with_vuejs_3/
-  --"angular-language-server",
+  "angular-language-server",
 
   "prettier",
   "eslint-lsp",
@@ -61,8 +61,14 @@ local inst_mason = {
   -- ============================================================
   -- Other Languages
   "kotlin-language-server",
+  --"kotlin-debug-adapter",
   ---- Python
   "pylyzer",
+  "python-lsp-server",
+  --"reorder-python-imports",
+  --"tree-sitter-cli", --npm install tree-sitter-cli
+  -- "r-languageserver",
+  -- "powershell-editor-services",
   -- "r-languageserver",
 
   -- ============================================================

@@ -1,0 +1,22 @@
+{
+  "languageserver": {
+    "angular": {
+      "command": "ngserver",
+      "args": [
+        "--stdio",
+        "--tsProbeLocations",
+        "C:/Users/RFF-07/AppData/Roaming/npm/node_modules/typescript/lib",
+        "--ngProbeLocations",
+        "C:/Users/RFF-07/AppData/Roaming/npm/node_modules/@angular/language-server/bin"
+      ],
+      "filetypes": [
+        "ts",
+        "typescript",
+        "html",
+        "typescriptreact",
+        "typescript.tsx"
+      ],
+      "trace.server.verbosity": "verbose"
+    }
+  }
+}

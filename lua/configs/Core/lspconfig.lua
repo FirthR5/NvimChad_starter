@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
--- local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -25,10 +25,11 @@ local servers = {
 
   -- ============================================================
   -- Web Dev Front Frameworks
-  "vuels", -- npm install -g vls
+  -- "vuels", -- npm install -g vls
+  "volar",
   -- Alternative: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
-  "angularls",
-  -- "tsserver",
+  --"angularls",
+  "tsserver",
   -- "typescript",
   --"typescriptreact", "typescript.tsx",
 
@@ -47,15 +48,16 @@ local servers = {
 
   -- ============================================================
   -- Other Languages
-  "kotlin_language_server",
+  -- "kotlin_language_server",
   -- "texlab"i
   --phpactor,
   "pyright",
+  "pylsp",
   --
 
   -- ============================================================
   -- Text Processors
-  "jsonls",
+  --"jsonls",
   -- "yamlls",
   -- "r_language_server"
   --"azure_pipelines_ls",
@@ -76,13 +78,13 @@ lspconfig.emmet_ls.setup {
     "eruby",
     "html",
     "javascript",
-    "javascriptreact",
+    -- "javascriptreact",
     "less",
     "sass",
     "scss",
     "svelte",
     "pug",
-    "typescriptreact",
+    -- "typescriptreact",
     "vue",
   },
   init_options = {
@@ -108,3 +110,64 @@ end
 -- -- @server angular-language-server
 -- -- https://github.com/yavuloh/nvim_angular/blob/main/lua/custom/configs/lspconfig.lua#L47
 -- https://github.com/neovim/nvim-lspconfig/issues/1155
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#angularls
+-- https://angular.dev/tools/language-service
+-- https://github.com/iamcco/coc-angular/issues/70
+-- https://v17.angular.io/guide/language-service#neovim
+local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver"
+local typescript_language_server_path = mason_packages .. "/typescript-language-server/node_modules/.bin/tsserver"
+local anigular_logs_path = vim.fn.stdpath "state" .. "/angularls.log"
+local node_modules_global_path = "/usr/local/lib/node_modules"
+
+local ngls_cmd = {
+  -- "node",
+  angular_language_server_path,
+  "--stdio",
+  "--tsProbeLocations",
+  typescript_language_server_path,
+  "--ngProbeLocations",
+  node_modules_global_path,
+  "--includeCompletionsWithSnippetText",
+  "--includeAutomaticOptionalChainCompletions",
+  "--logToConsole",
+  "--logFile",
+  anigular_logs_path,
+}
+
+local util = require "lspconfig.util"
+lspconfig.angularls.setup {
+  cmd = ngls_cmd,
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  on_new_config = function(new_config, _)
+    new_config.cmd = ngls_cmd
+  end,
+  filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+  root_dir = util.root_pattern ".git", --,"angular.json", "project.json"),
+}
+
+-- VUE
+-- local options_vue = {
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+--         languages = {"javascript", "typescript", "vue"},
+--       },
+--     },
+--   },
+--   filetypes = {
+--     "javascript",
+--     "typescript",
+--     "vue",
+--   },
+-- }
+--
+--
+-- require'lspconfig'.tsserver.setup(options_vue)
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+-- You must make sure volar is setup
+-- e.g. require'lspconfig'.volar.setup{}
+-- See volar's section for more information
