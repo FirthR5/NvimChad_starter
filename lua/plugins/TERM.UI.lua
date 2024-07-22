@@ -1,6 +1,8 @@
 local notify_config = require "configs.TERM.nvim_notify"
 local config_noice = require "configs.TERM.noice"
 local config_shade = require "configs.TERM.shade"
+local keymaps = require "configs.TERM.keymaps"
+local legendary = require "configs.TERM.legendary"
 
 return {
   {
@@ -35,4 +37,6 @@ return {
       config_shade.setup()
     end,
   },
+  legendary,
+  -- keymaps,
 }
