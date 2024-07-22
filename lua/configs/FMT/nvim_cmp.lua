@@ -53,7 +53,7 @@ local options = {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = false },
+    ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -87,8 +87,7 @@ local options = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lua = "[Lua]",
         nvim_lsp = "[Lsp]",
@@ -105,6 +104,7 @@ local options = {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    -- { name = "coc" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -140,6 +140,26 @@ cmp.setup.cmdline(":", {
     },
   }),
 })
+
+-- cmp.register_source("coc", {
+--   complete = function(self, params, callback)
+--     vim.fn.CocActionAsync("doCompletion", params.context.cursor.row, params.context.cursor.col, function(err, res)
+--       if err then
+--         callback { items = {}, isIncomplete = false }
+--       else
+--         local items = {}
+--         for _, item in ipairs(res) do
+--           table.insert(items, {
+--             label = item.word,
+--             insertText = item.insertText or item.word,
+--             kind = cmp.lsp.CompletionItemKind[item.kind],
+--           })
+--         end
+--         callback { items = items, isIncomplete = false }
+--       end
+--     end)
+--   end,
+-- })
 
 local M = {
   "hrsh7th/nvim-cmp",

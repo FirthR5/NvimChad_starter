@@ -1,0 +1,49 @@
+{
+  "suggest.autoTrigger": "always",
+  "coc.preferences.formatOnSave": false,
+  "completion.noselect": false,
+  "completion.enable": true,
+  "suggest.enable": true,
+  "coc.source.buffer.enable": true,
+  "coc.source.path.enable": true,
+
+  "languageserver": {
+    "tsserver": {
+      "command": "tsserver",
+      "filetypes": ["typescript", "typescriptreact", "javascript"]
+    },
+    "angular": {
+      "command": "ngserver",
+      "args": [
+        "--stdio",
+        "--tsProbeLocations",
+        "C:/Users/RFF-07/AppData/Roaming/npm/node_modules/typescript/lib",
+        "--ngProbeLocations",
+        "C:/Users/RFF-07/AppData/Roaming/npm/node_modules/@angular/language-server/bin"
+      ],
+      "filetypes": [
+        "ts",
+        "typescript",
+        "html",
+        "typescriptreact",
+        "typescript.tsx"
+      ],
+      "trace.server.verbosity": "verbose"
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/ccls"
+      }
+    }
+  },
+  "coc.preferences.disabled": ["html", "css"],
+  "[javascript]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[typescript]": {
+    "coc.preferences.formatOnSave": true
+  }
+}
