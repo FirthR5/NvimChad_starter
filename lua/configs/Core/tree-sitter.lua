@@ -20,7 +20,7 @@ function highlight()
   return {
     enable = true,
     use_languagetree = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   }
 end
 -- incremental_selection = {
@@ -49,15 +49,10 @@ function events()
   return { "BufRead", "BufWinEnter", "BufNewFile" }
 end
 
+local ts_autotag = {}
+
 function dependencies()
-  return {
-    {
-      "windwp/nvim-ts-autotag",
-      config = function()
-        require("nvim-ts-autotag").setup()
-      end,
-    },
-  }
+  return require "configs.FMT.tsAutoTag"
 end
 -- --ft = require("config.lsp").filetypes_with_lsp(),
 -- function M.fts()

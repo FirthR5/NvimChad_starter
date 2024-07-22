@@ -13,6 +13,15 @@ local options = {
     ["html"] = {
       enable_close = false,
     },
+    ["markdown"] = {
+      enable_close = true,
+    },
+    ["typescript"] = {
+      enable_close = true,
+    },
+    ["vue"] = {
+      enable_close = true,
+    },
   },
 }
 

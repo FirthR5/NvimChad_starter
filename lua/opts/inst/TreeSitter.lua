@@ -5,8 +5,12 @@ local TreeSitter_install = {
   -- "lua",
   "vimdoc",
   "luadoc",
-  "gitignore",
-
+  "bash",
+  "awk",
+  "dockerfile",
+  "hurl",
+  "jq",
+  "ssh_config",
   -- ===================================================
   -- Database
   "sql",
@@ -38,10 +42,12 @@ local TreeSitter_install = {
   -- Low Level
   "c",
   "cpp",
-  -- "cmake","arduino",
+  "cmake",
+  "arduino",
 
   -- ===================================================
   -- Other Languages
+  "kotlin",
   "groovy",
   "r",
 
@@ -53,11 +59,16 @@ local TreeSitter_install = {
   "yaml",
   "xml",
   "csv",
+  "tsv",
   "http",
   "jsdoc",
   "json",
-
+  "regex",
+  "slint",
   -- ===================================================
+
+  "gitignore",
+  "gitattributes",
   "git_config",
   "git_rebase",
   "gitcommit",
