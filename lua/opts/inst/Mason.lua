@@ -23,6 +23,8 @@ local inst_mason = {
   "htmlhint",
   "htmlbeautifier",
   "css-lsp",
+  "csharpier",
+  "netcoredbg",
 
   -- ============================================================
   -- Web Dev Front Frameworks
