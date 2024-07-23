@@ -8,6 +8,7 @@ local inc_rename = require "configs.FMT.inc_rename"
 local tsAutoTag = require "configs.FMT.tsAutoTag"
 local lspkind = require "configs.FMT.lspkind"
 local codium = require "configs.FMT.AI_Codium"
+local vimrazor = require "configs.FMT.vim-razor"
 
 local snippets = {
 
@@ -32,6 +33,7 @@ local snippets = {
   -- codium,
   inc_rename,
   --lspkind,
+  -- vimrazor,
 }
 
 return snippets

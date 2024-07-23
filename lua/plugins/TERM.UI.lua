@@ -4,6 +4,8 @@ local config_shade = require "configs.TERM.shade"
 local keymaps = require "configs.TERM.keymaps"
 local legendary = require "configs.TERM.legendary"
 local ng = require "configs.FMT.ng"
+-- local autosession = require "configs.TERM.autosession"
+
 return {
   -- ==================================================================
   -- Default by NvChad
