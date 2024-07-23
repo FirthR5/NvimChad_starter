@@ -9,6 +9,8 @@ local options = {
     html = { "prettier" },
     javascript = { "prettier" },
     -- javascript = { "prettierd", "prettier", stop_after_first = true },
+
+    cs = { "csharpier" },
     python = { "isort", "black" },
     lua = { "stylua" },
     json = { "prettier" },
@@ -16,6 +18,12 @@ local options = {
     markdown = { "prettier", "markdownlint" },
     sql = { "sql_formatter" },
     ["*"] = { "injected" },
+  },
+  formatters = {
+    csharpier = {
+      command = "dotnet-csharpier",
+      args = { "--write-stdout" },
+    },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
