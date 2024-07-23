@@ -3,9 +3,9 @@ require("nvchad.configs.lspconfig").defaults()
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
 local lspconfig = require "lspconfig"
 
+-- Alternative: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
 local servers = {
   -- ===================================================
   -- Defaults SHELL
@@ -27,7 +27,6 @@ local servers = {
   -- Web Dev Front Frameworks
   -- "vuels", -- npm install -g vls
   "volar",
-  -- Alternative: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
   --"angularls",
   "tsserver",
   -- "typescript",
@@ -114,38 +113,56 @@ end
 -- https://angular.dev/tools/language-service
 -- https://github.com/iamcco/coc-angular/issues/70
 -- https://v17.angular.io/guide/language-service#neovim
-local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver"
-local typescript_language_server_path = mason_packages .. "/typescript-language-server/node_modules/.bin/tsserver"
-local anigular_logs_path = vim.fn.stdpath "state" .. "/angularls.log"
-local node_modules_global_path = "/usr/local/lib/node_modules"
 
-local ngls_cmd = {
-  -- "node",
-  angular_language_server_path,
-  "--stdio",
-  "--tsProbeLocations",
-  typescript_language_server_path,
-  "--ngProbeLocations",
-  node_modules_global_path,
-  "--includeCompletionsWithSnippetText",
-  "--includeAutomaticOptionalChainCompletions",
-  "--logToConsole",
-  "--logFile",
-  anigular_logs_path,
-}
+--local sysname = vim.loop.os_uname().sysname
+-- if sysname == "Windows_NT" then
+local is_windows = vim.loop.os_uname().version:match "Windows"
 
-local util = require "lspconfig.util"
-lspconfig.angularls.setup {
-  cmd = ngls_cmd,
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  on_new_config = function(new_config, _)
-    new_config.cmd = ngls_cmd
-  end,
-  filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-  root_dir = util.root_pattern ".git", --,"angular.json", "project.json"),
-}
+if is_windows then
+  local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+  local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver.CMD"
+  local typescript_language_server_path = mason_packages .. "/typescript-language-server/node_modules/.bin/tsserver"
+  local angular_logs_path = vim.fn.stdpath "state" .. "/angularls.log"
+
+  local node_modules_global_path = "C:/Users/RFF-07/AppData/Roaming/npm/node_modules"
+
+  local ngls_cmd = {
+    -- "node",
+    angular_language_server_path,
+    "--stdio",
+    "--tsProbeLocations",
+    node_modules_global_path,
+    "--ngProbeLocations",
+    node_modules_global_path,
+    "--includeCompletionsWithSnippetText",
+    "--includeAutomaticOptionalChainCompletions",
+    "--logToConsole",
+    "--logFile",
+    angular_logs_path,
+  }
+
+  local util = require "lspconfig.util"
+  lspconfig.angularls.setup {
+    cmd = ngls_cmd,
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+    on_new_config = function(new_config, _)
+      new_config.cmd = ngls_cmd
+    end,
+    filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+    root_dir = util.root_pattern ".git", --,"angular.json", "project.json"),
+  }
+else
+  local nothing = ""
+  -- linux
+  -- local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
+  -- local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver.CMD"
+  -- local typescript_language_server_path = mason_packages .. "/typescript-language-server/node_modules/.bin/tsserver"
+  -- local angular_logs_path = vim.fn.stdpath "state" .. "/angularls.log"
+
+  local node_modules_global_path = "/usr/local/lib/node_modules"
+end
 
 -- VUE
 -- local options_vue = {
