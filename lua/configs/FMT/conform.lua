@@ -7,7 +7,7 @@ local options = {
     scss = { "prettier" },
     less = { "prettier" },
     html = { "prettier" },
-    javascript = { "prettier" },
+    -- javascript = { "prettier" },
     -- javascript = { "prettierd", "prettier", stop_after_first = true },
 
     cs = { "csharpier" },
@@ -27,7 +27,7 @@ local options = {
   },
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 2000,
     lsp_fallback = true,
   },
   lsp = {

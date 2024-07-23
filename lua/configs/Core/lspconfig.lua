@@ -15,6 +15,7 @@ local servers = {
 
   -- ===================================================
   -- Database
+  -- "sqls",
   "sqlls",
   -- "sqlfmt",
   -- "sqlfluff",
@@ -27,7 +28,7 @@ local servers = {
   -- Web Dev Front Frameworks
   -- "vuels", -- npm install -g vls
   "volar",
-  --"angularls",
+  "angularls",
   "tsserver",
   -- "typescript",
   --"typescriptreact", "typescript.tsx",
@@ -49,15 +50,15 @@ local servers = {
   -- Other Languages
   -- "kotlin_language_server",
   -- "texlab"i
-  --phpactor,
+  -- phpactor,
   "pyright",
   "pylsp",
   --
 
   -- ============================================================
   -- Text Processors
-  --"jsonls",
-  -- "yamlls",
+  "jsonls",
+  "yamlls",
   -- "r_language_server"
   --"azure_pipelines_ls",
   --"clangd",
@@ -71,7 +72,7 @@ capabilities2.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.emmet_ls.setup {
   -- on_attach = on_attach,
-  capabilities = capabilities2,
+  capabilities = capabilities,
   filetypes = {
     "css",
     "eruby",

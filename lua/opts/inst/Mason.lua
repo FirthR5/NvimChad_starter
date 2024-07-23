@@ -3,25 +3,24 @@ local inst_mason = {
   -- ============================================================
   -- Defaults SHELL
   "lua-language-server",
-  "luaformatter",
-  "luacheck",
+  -- "luaformatter",
   "stylua",
   -- "bash-lsp/bash-language-server",
   -- shellcheck
-  -- "tree-sitter-cli",
+  -- "tree-sitter-cli", --npm install -g tree-sitter-cli
 
   -- ===================================================
   -- Database
-  "sql-formatter",
+  -- "sqls",
   "sqlls",
-  "sqlfmt",
+  "sql-formatter",
+  -- "sqlfmt",
   --"sqlfluff",
   -- ============================================================
   -- Web Dev Basics
   "standardjs",
   "html-lsp",
   "htmlhint",
-  "htmlbeautifier",
   "css-lsp",
   "csharpier",
   "netcoredbg",
@@ -68,7 +67,6 @@ local inst_mason = {
   "pylyzer",
   "python-lsp-server",
   --"reorder-python-imports",
-  --"tree-sitter-cli", --npm install tree-sitter-cli
   -- "r-languageserver",
   -- "powershell-editor-services",
   -- "r-languageserver",

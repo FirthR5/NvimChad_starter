@@ -20,7 +20,7 @@ function highlight()
   return {
     enable = true,
     use_languagetree = true,
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
   }
 end
 -- incremental_selection = {
