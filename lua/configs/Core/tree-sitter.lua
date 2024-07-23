@@ -52,7 +52,7 @@ end
 local ts_autotag = {}
 
 function dependencies()
-  return require "configs.FMT.tsAutoTag"
+  return require "configs.FMT.LSP_cmp.tsAutoTag"
 end
 -- --ft = require("config.lsp").filetypes_with_lsp(),
 -- function M.fts()

@@ -3,7 +3,7 @@ local config_noice = require "configs.TERM.noice"
 local config_shade = require "configs.TERM.shade"
 local keymaps = require "configs.TERM.keymaps"
 local legendary = require "configs.TERM.legendary"
-local ng = require "configs.FMT.ng"
+local ng = require "configs.FMT.LSP_cmp.ng"
 -- local autosession = require "configs.TERM.autosession"
 
 return {
