@@ -3,13 +3,21 @@ local config_noice = require "configs.TERM.noice"
 local config_shade = require "configs.TERM.shade"
 local keymaps = require "configs.TERM.keymaps"
 local legendary = require "configs.TERM.legendary"
-
+local ng = require "configs.FMT.ng"
 return {
   -- ==================================================================
   -- Default by NvChad
   -- ==================================================================
 
   -- ==================================================================
+  {
+    "stevearc/aerial.nvim",
+    lazy = true,
+    dependencies = require "opts.deps.aerial",
+    config = function()
+      require "configs.EXT.aerial"
+    end,
+  },
   {
     "rcarriga/nvim-notify",
     lazy = false,
@@ -23,15 +31,7 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = config_noice.dependencies(),
-    config = config_noice.setup,--(),
-  },
-  {
-    "stevearc/aerial.nvim",
-    lazy = true,
-    dependencies = require "opts.deps.aerial",
-    config = function()
-      require "configs.EXT.aerial"
-    end,
+    config = config_noice.setup, --(),
   },
 
   -- dim inactive windows
@@ -43,5 +43,6 @@ return {
     end,
   },
   legendary,
+  ng,
   -- keymaps,
 }
