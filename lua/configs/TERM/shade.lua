@@ -1,8 +1,8 @@
 local M = {}
 
 local options = {
-  overlay_opacity = 0,
-  opacity_step = 1,
+  overlay_opacity = 50,
+  opacity_step = 100,
   keys = {
     brightness_up = "<C-Up>",
     brightness_down = "<C-Down>",

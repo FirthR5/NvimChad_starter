@@ -32,14 +32,14 @@ return {
     dependencies = config_noice.dependencies(),
     config = config_noice.setup, --(),
   },
-  {
-    -- dim inactive windows
-    "andreadev-it/shade.nvim",
-    --lazy = false,
-    config = function()
-      config_shade.setup()
-    end,
-  },
+  -- {
+  --   -- dim inactive windows
+  --   "andreadev-it/shade.nvim",
+  --   --lazy = false,
+  --   config = function()
+  --     config_shade.setup()
+  --   end,
+  -- },
   -- ==================================================================
   legendary,
   ng,
