@@ -11,7 +11,7 @@ local options = {
   -- doesn't work well in a specific filetype
   per_filetype = {
     ["html"] = {
-      enable_close = false,
+      enable_close = true,
     },
     ["markdown"] = {
       enable_close = true,
