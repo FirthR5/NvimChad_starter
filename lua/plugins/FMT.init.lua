@@ -6,9 +6,9 @@ local conform = require "configs.FMT.LSP_cmp.conform"
 local cmp = require "configs.FMT.LSP_cmp.nvim_cmp"
 local inc_rename = require "configs.FMT.inc_rename"
 local tsAutoTag = require "configs.FMT.LSP_cmp.tsAutoTag"
-local lspkind = require "configs.FMT.LSP_cmp.lspkind"
-local codium = require "configs.FMT.LSP_cmp.AI_Codium"
-local vimrazor = require "configs.FMT.vim-razor"
+-- local lspkind = require "configs.FMT.LSP_cmp.lspkind"
+-- local codium = require "configs.FMT.LSP_cmp.AI_Codium"
+-- local vimrazor = require "configs.FMT.vim-razor"
 local denseAnalaysisALE = require "configs.FMT.dense-analysis-ALE"
 
 local snippets = {

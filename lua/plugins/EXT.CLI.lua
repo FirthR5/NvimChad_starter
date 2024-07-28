@@ -20,7 +20,7 @@ local plugins = {
   trouble,
   -- ==================================================================
   -- Rest Nvim
-  --dadbotUI,
+  -- dadbotUI,
   web_tools,
 }
 
