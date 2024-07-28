@@ -4,13 +4,11 @@ local config_shade = require "configs.TERM.shade"
 local keymaps = require "configs.TERM.keymaps"
 local legendary = require "configs.TERM.legendary"
 local ng = require "configs.FMT.LSP_cmp.ng"
--- local autosession = require "configs.TERM.autosession"
+local autosession = require "configs.TERM.auto-session"
 
 return {
   -- ==================================================================
   -- Default by NvChad
-  -- ==================================================================
-
   -- ==================================================================
   {
     "stevearc/aerial.nvim",
@@ -28,23 +26,24 @@ return {
       notify_config.setup()
     end,
   },
-
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = config_noice.dependencies(),
     config = config_noice.setup, --(),
   },
-
-  -- dim inactive windows
   {
+    -- dim inactive windows
     "andreadev-it/shade.nvim",
     --lazy = false,
     config = function()
       config_shade.setup()
     end,
   },
+  -- ==================================================================
   legendary,
   ng,
-  -- keymaps,
+  require "configs.TERM.goto_preview",
+  require "configs.TERM.indent_blankline",
+  autosession,
 }
