@@ -106,7 +106,10 @@ for _, lsp in ipairs(servers) do
 end
 
 ----
-
+-- require("roslyn").setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 -- -- @server angular-language-server
 -- -- https://github.com/yavuloh/nvim_angular/blob/main/lua/custom/configs/lspconfig.lua#L47
 -- https://github.com/neovim/nvim-lspconfig/issues/1155

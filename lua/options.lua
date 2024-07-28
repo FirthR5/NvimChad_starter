@@ -1,7 +1,6 @@
 require "nvchad.options"
 
 --require "configs.vim_configs"
--- add yours here!
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/options.lua
 -- https://stackoverflow.com/questions/1676632/whats-a-quick-way-to-comment-uncomment-lines-in-vim
 --https://hatchjs.com/neovim-copy-to-system-clipboard/
@@ -30,3 +29,5 @@ vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.wrap = true
+
+-- vim.o.shell = "pwsh" --"C:/Program Files/PowerShell/7/pwsh.exe"
