@@ -57,6 +57,15 @@ end
 -- --ft = require("config.lsp").filetypes_with_lsp(),
 -- function M.fts()
 
+local options = {
+  highlight = { enable = true },
+  incremental_selection = { enable = false },
+  indent = { enable = true, disable = { "python", "yaml" } },
+  autopairs = { enable = true },
+  autotag = { enable = true },
+  matchup = { enable = true },
+}
+
 local M = {}
 M = {
   "nvim-treesitter/nvim-treesitter",
@@ -68,7 +77,7 @@ M = {
   sync_install = sync_install(),
   autotag = autotag(),
   dependencies = dependencies(),
-  config = setup(),
+  config = setup(options),
   -- indent = {
   --   enable = true,
   -- },
