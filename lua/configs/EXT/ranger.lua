@@ -1,3 +1,4 @@
+local options = {}
 local M = {}
 
 M = {
