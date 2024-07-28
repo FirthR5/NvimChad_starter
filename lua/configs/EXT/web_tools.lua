@@ -16,7 +16,8 @@ local options = {
 
 return {
   "ray-x/web-tools.nvim",
-  lazy = false,
+  -- lazy = false,
+  event = "VeryLazy",
   config = function()
     require("web-tools").setup(options)
   end,
