@@ -1,8 +1,9 @@
 -- This file needs to have same structure as nvconfig.lua
--- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
 
-local logos = require "opts.MenuLogo"
--- https://github.com/Alexis12119/nvim-config/blob/main/lua/chadrc.lua#L159
+-- Import All Logos i saved
+local logos = require "prefs.MenuLogo"
+
+-- Cancatenate two logos
 local function concatWithSpace(list1, list2)
   local concatenatedList = {}
   for _, line in ipairs(list1) do
@@ -33,10 +34,12 @@ M.ui = {
     --       bg = "darker_black"
     --    }
     ["@comment"] = { italic = true },
+
     Search = { fg = "black", bg = "NONE" },
     IncSearch = { fg = "black", bg = "NONE" },
     CurSearch = { fg = "black", bg = "NONE" },
     -- Substitute = { fg = "black", bg = "NONE" },
+
     NvDashAscii = { bg = "NONE", fg = "NONE" },
     NvDashButtons = { bg = "NONE" }, -- This can make transparent the background
 
@@ -45,9 +48,15 @@ M.ui = {
     LspReferenceText = { link = "Underlined" },
     LspReferenceWrite = { link = "Underlined" },
     --TblineFill = { link = "Normal" },
-    NvimTreeRootFolder = { link = "NvimTreeFolderName" },
+    -- NvimTreeRootFolder = { link = "NvimTreeFolderName" },
   },
 
+  statusline = {
+    theme = "minimal", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "round",
+  },
   tabufline = {
     enabled = true,
     order = { "treeOffset", "buffers", "tabs", "btns" },
@@ -59,7 +68,7 @@ M.ui = {
   },
   term = {
     hl = "Normal:term,WinSeparator:WinSeparator",
-    sizes = { sp = 0.3, vsp = 0.2 },
+    sizes = { sp = 0.1, vsp = 0.1 },
     float = {
       relative = "editor",
       row = 0.3,
@@ -69,10 +78,11 @@ M.ui = {
       border = "single",
     },
   },
+
   nvdash = {
     load_on_startup = true,
-    header = logos["pacman"],
-    --header = concatWithSpace(logos["CR7"], logos["nvim"]),
+    header = logos["chad"],
+    -- header = concatWithSpace(logos["CR7"], logos["nvim"]),
 
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
@@ -90,6 +100,8 @@ M.ui.lsp = { signature = false }
 
 return M
 
+-- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
+-- https://github.com/Alexis12119/nvim-config/blob/main/lua/chadrc.lua#L159
 -- MUST READ
 -- https://linuxize.com/post/vim-find-replace/
 -- https://learnvim.irian.to/basics/macros
