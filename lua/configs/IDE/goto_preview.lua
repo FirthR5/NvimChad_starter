@@ -4,7 +4,7 @@ local options = {
   border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
   default_mappings = false, -- Bind default mappings
   debug = false, -- Print debug information
-  opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+  opacity = 50, -- 0-100 opacity level of the floating window where 100 is fully transparent.
   resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
   post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
   post_close_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
@@ -20,6 +20,7 @@ local options = {
   preview_window_title = { enable = true, position = "left" }, -- Whether to set the preview window title as the filename
   zindex = 1, -- Starting zindex for the stack of floating windows
 }
+
 function keybinds()
   -- ~/.config/nvim/lua/custom/mappings.lua
   -- Mapeos para el plugin goto-preview

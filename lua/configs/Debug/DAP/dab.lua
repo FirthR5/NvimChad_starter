@@ -42,7 +42,7 @@ local debug = {
   --        telescope.load_extension("dap")
   --     end
   --
-  --     local ok_cmp, cmp = pcall(require, "cmp")
+  --     local ok_cm, cmp = pcall(require, "cmp")
   --     if ok_cmp then
   --      cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
   --       sources = cmp.config.sources({
@@ -55,5 +55,3 @@ local debug = {
   --    end,
   -- }
 }
-
-return debug

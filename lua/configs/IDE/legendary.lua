@@ -4,6 +4,7 @@ local options = {
 
   keymaps = {
     -- TODO: Add Personalized Keybindings \\ https://github.com/mrjones2014/legendary.nvim?tab=readme-ov-file#quickstart
+    { "<leader>Lk", ":Legendary keymaps<CR>", description = "Legendary: Keymaps" },
   },
   autocmds = {
     -- Create autocmds and augroups
@@ -14,11 +15,11 @@ local options = {
       -- autocmds here
     },
   },
-  -- load extensions
   extensions = {
     -- automatically load keymaps from lazy.nvim's `keys` option
     lazy_nvim = true,
     -- load keymaps and commands from nvim-tree.lua
+
     -- nvim_tree = true,
     -- load commands from smart-splits.nvim
     -- and create keymaps, see :h legendary-extensions-smart-splits.nvim
@@ -35,6 +36,10 @@ local options = {
     -- load keymaps from diffview.nvim
     diffview = true,
   },
+  scratchpad = {
+    view = "float",
+    results_view = "float",
+  },
 }
 
 M = {
@@ -42,7 +47,7 @@ M = {
   -- since legendary.nvim handles all your keymaps/commands,
   -- its recommended to load legendary.nvim before other plugins
   priority = 10000,
-  -- lazy = false,
+  lazy = true,
   event = "VeryLazy",
   config = function()
     require("legendary").setup(options)

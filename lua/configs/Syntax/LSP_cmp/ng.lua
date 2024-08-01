@@ -6,7 +6,6 @@ return {
     -- local opts = { noremap = true, silent = true, desc = "" }
 
     -- Key mappings with default behavior
-
     vim.keymap.set(
       "n",
       "<leader>At",

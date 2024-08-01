@@ -1,5 +1,4 @@
 local M = {}
--- https://github.com/JazzyGrim/dotfiles/blob/master/.config/nvim/lua/plugins/ui.lua
 M = {
   "kristijanhusak/vim-dadbod-ui",
   dependencies = {
@@ -13,7 +12,6 @@ M = {
     "DBUIFindBuffer",
   },
   init = function()
-    -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
   end,
   keys = {
@@ -26,3 +24,5 @@ M = {
 }
 
 return M
+
+-- https://github.com/JazzyGrim/dotfiles/blob/master/.config/nvim/lua/plugins/ui.lua

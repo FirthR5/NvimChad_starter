@@ -1,5 +1,27 @@
 local inst_TS = require "opts.inst.TreeSitter"
 
+local options = {
+  highlight = { enable = true },
+  incremental_selection = { enable = false },
+  auto_install = true,
+  sync_install = true,
+  indent = {
+    enable = true,
+    use_languagetree = true,
+    additional_vim_regex_highlighting = false,
+    disable = { "python", "yaml" },
+  },
+  autopairs = { enable = true },
+  autotag = { enable = true },
+  matchup = { enable = true },
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = { "BufWrite", "CursorHold" },
+  },
+  -- ft=config_treesitter.fts(),
+}
+
 function setup()
   vim.opt.foldmethod = "expr"
   vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -16,13 +38,18 @@ function setup()
   -- zM - Close all folds in the current buffer.
 end
 
-function highlight()
-  return {
-    enable = true,
-    use_languagetree = true,
-    additional_vim_regex_highlighting = false,
-  }
-end
+local M = {}
+M = {
+  "nvim-treesitter/nvim-treesitter",
+  -- tag = "v0.9.1",
+  opts = { ensure_installed = inst_TS, opts = options },
+  event = { "BufRead", "BufWinEnter", "BufNewFile" },
+  dependencies = require "configs.Syntax.LSP_cmp.tsAutoTag",
+  config = setup(),
+}
+
+return M
+
 -- incremental_selection = {
 --   enable = true,
 --   keymaps = {
@@ -32,55 +59,3 @@ end
 --     node_decremental = "grm",
 --   },
 -- },
-function auto_install()
-  return true
-end
-
-function sync_install()
-  return true
-end
-
-function autotag()
-  return {
-    enable = true,
-  }
-end
-function events()
-  return { "BufRead", "BufWinEnter", "BufNewFile" }
-end
-
-local ts_autotag = {}
-
-function dependencies()
-  return require "configs.FMT.LSP_cmp.tsAutoTag"
-end
--- --ft = require("config.lsp").filetypes_with_lsp(),
--- function M.fts()
-
-local options = {
-  highlight = { enable = true },
-  incremental_selection = { enable = false },
-  indent = { enable = true, disable = { "python", "yaml" } },
-  autopairs = { enable = true },
-  autotag = { enable = true },
-  matchup = { enable = true },
-}
-
-local M = {}
-M = {
-  "nvim-treesitter/nvim-treesitter",
-  opts = { ensure_installed = inst_TS },
-  event = events(),
-  -- ft=config_treesitter.fts(),
-  highlight = highlight(),
-  auto_install = auto_install(),
-  sync_install = sync_install(),
-  autotag = autotag(),
-  dependencies = dependencies(),
-  config = setup(options),
-  -- indent = {
-  --   enable = true,
-  -- },
-}
-
-return M

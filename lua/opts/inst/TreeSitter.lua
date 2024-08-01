@@ -37,6 +37,7 @@ local TreeSitter_install = {
   "php",
   "python",
   "sql",
+  -- "graphql",
 
   -- ============================================================
   -- Low Level

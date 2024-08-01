@@ -10,10 +10,10 @@ local plugins = {
   -- - nvim-web-devicons.nvim
   -- - nvim-tree.lua
   -- - which-key.nvim
+  -- require "configs.Core.nvim-tree",
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
       require "configs.Core.lspconfig"
     end,
   },
@@ -31,6 +31,7 @@ local plugins = {
       require("configs.Core.telescope").Setup()
     end,
   },
+
   -- {
   --   "NvChad/nvterm",
   --   config = function()

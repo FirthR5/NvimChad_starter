@@ -4,7 +4,8 @@ local M = {}
 M = {
   "kelly-lin/ranger.nvim",
   config = function()
-    require("ranger-nvim").setup {
+    local ranger_nvim = require "ranger-nvim"
+    local opts = {
       enable_cmds = false,
       replace_netrw = false,
       keybinds = {
@@ -21,6 +22,7 @@ M = {
         y = 0.5,
       },
     }
+    ranger_nvim.setup(opts)
 
     vim.api.nvim_set_keymap("n", "<leader>fe", "", {
       desc = "open ranger",
