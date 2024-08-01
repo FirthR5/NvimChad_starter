@@ -2,27 +2,29 @@ require "nvchad.options"
 
 -- Vim Variables
 local o = vim.o
+local opt = vim.opt
 local cmd = vim.cmd
 
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- Numbers and Tabs
 o.expandtab = true
 o.relativenumber = true
-vim.opt.smarttab = true
+opt.smarttab = true
 
 --cmd.colorscheme("habamax")-- slate, habamax
 cmd.highlight { "link", "Warning", "Error" }
 -- https://neovim.io/doc/user/lua-guide.html
 
 -- Indent
-vim.opt.autoindent = true
-vim.opt.smartindent = true
+opt.autoindent = true
+opt.smartindent = true
 -- vim.opt.cmdheight = 0
 -- vim.opt.laststatus = 0
 -- vim.opt.inccommand = "split"
-vim.opt.smarttab = true
-vim.opt.breakindent = true
-vim.opt.wrap = true
-vim.opt.clipboard = ""
+opt.smarttab = true
+opt.breakindent = true
+opt.wrap = true
+opt.clipboard = ""
 -- vim.o.shell = "pwsh" --"C:/Program Files/PowerShell/7/pwsh.exe"
 
 --require "configs.vim_configs"

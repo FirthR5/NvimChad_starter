@@ -1,5 +1,3 @@
--- This file needs to have same structure as nvconfig.lua
-
 -- Import All Logos i saved
 local logos = require "prefs.MenuLogo"
 
