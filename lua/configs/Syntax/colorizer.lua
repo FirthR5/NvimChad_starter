@@ -2,8 +2,8 @@ local M = {}
 
 -- https://github.com/norcalli/nvim-colorizer.lua
 local options = {
-  -- "*",
-  css = {
+  { "*" },
+  {
     RRGGBBAA = true, -- #RRGGBBAA hex codes
     rgb_fn = true, -- CSS rgb() and rgba() functions
     hsl_fn = true, -- CSS hsl() and hsla() functions
