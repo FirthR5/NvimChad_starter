@@ -128,6 +128,7 @@ if is_windows then
   local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver.CMD"
   local typescript_language_server_path = mason_packages .. "/typescript-language-server/node_modules/.bin/tsserver"
   local angular_logs_path = vim.fn.stdpath "state" .. "/angularls.log"
+  local util = require "lspconfig.util"
 
   local node_modules_global_path = "C:/Users/RFF-07/AppData/Roaming/npm/node_modules"
 
@@ -157,7 +158,6 @@ if is_windows then
     root_dir = util.root_pattern ".git", --,"angular.json", "project.json"),
   }
 
-  local util = require "lspconfig.util"
   lspconfig.angularls.setup(config_angularls)
 else
   table.insert(servers, "angularls")

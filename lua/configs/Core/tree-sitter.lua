@@ -9,7 +9,7 @@ local options = {
     enable = true,
     use_languagetree = true,
     additional_vim_regex_highlighting = false,
-    disable = { "python", "yaml" },
+    -- disable = { "python", "yaml" },
   },
   autopairs = { enable = true },
   autotag = { enable = true },
