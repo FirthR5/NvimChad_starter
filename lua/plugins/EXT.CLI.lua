@@ -9,7 +9,6 @@ local plugins = {
   -- ==================================================================
   -- Default by NvChad
   -- ==================================================================
-  -- Lazy GIT
   lazygit,
   gitsigns,
 
@@ -18,10 +17,11 @@ local plugins = {
   -- ==================================================================
   ranger,
   trouble,
-  -- ==================================================================
   -- Rest Nvim
   -- dadbotUI,
   web_tools,
+  require "configs.EXT.tmux-navigator",
+  -- require "configs.EXT.dbee",
 }
 
 return plugins
