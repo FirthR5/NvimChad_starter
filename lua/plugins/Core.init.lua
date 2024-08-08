@@ -10,7 +10,7 @@ local plugins = {
   -- - nvim-web-devicons.nvim
   -- - nvim-tree.lua
   -- - which-key.nvim
-  -- require "configs.Core.nvim-tree",
+  require "configs.Core.nvim-tree",
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -19,9 +19,18 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = inst_Mason,
-    },
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup {
+        ensure_installed = inst_Mason,
+        automatic_installation = true,
+      }
+    end,
   },
   config_treesitter,
   {
