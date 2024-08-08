@@ -22,6 +22,7 @@ local inst_mason = {
   "html-lsp",
   "htmlhint",
   "css-lsp",
+  -- "emmet-language-server",
   "csharpier",
   "netcoredbg",
 

@@ -2,7 +2,6 @@ local M = {}
 
 local options = {
   formatters_by_ft = {
-    -- lua = { "stylua" },
     css = { "prettier" },
     scss = { "prettier" },
     less = { "prettier" },
@@ -12,6 +11,7 @@ local options = {
 
     cs = { "csharpier" },
     python = { "isort", "black" },
+
     lua = { "stylua" },
     json = { "prettier" },
     yaml = { "prettier" },
@@ -27,7 +27,7 @@ local options = {
   },
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 2000,
+    timeout_ms = 500,
     lsp_fallback = true,
   },
   lsp = {
@@ -36,7 +36,7 @@ local options = {
     },
   },
 }
-local event = { "LspAttach", "BufWritePre", "BufReadPre", "BufNewFile" }
+local event = { "LspAttach", "BufWritePre" } --, "BufReadPre", "BufNewFile" }
 
 local formatter_path = ""
 local sysname = vim.loop.os_uname().sysname

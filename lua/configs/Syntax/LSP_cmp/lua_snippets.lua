@@ -10,7 +10,7 @@ function MySetup()
   require("luasnip.loaders.from_vscode").load()
 
   require("luasnip.loaders.from_lua").load { paths = lua_snippets_my_path }
-  vim.g.lua_snippets_my_path = vim.fn.stdpath "config" .. "/lua/prefs/snippets"
+  vim.g.lua_snippets_my_path = vim.fn.stdpath "config" .. "/lua/prefs/snippets/"
 end
 
 --   -- ========================================================================
