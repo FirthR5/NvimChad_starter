@@ -11,7 +11,8 @@ M = {
   dependencies = { "nvim-lua/plenary.nvim" }, -- Default by NvChad
   config = function()
     require("inc_rename").setup(options)
-    vim.keymap.set("n", "<leader>rr", ":IncRename ", { silent = true })
+    local keybinds = require("prefs.keymap.plug.LSP_Keys").IncRename
+    vim.keymap.set("n", keybinds.rename, ":IncRename ", { silent = true })
   end,
 }
 

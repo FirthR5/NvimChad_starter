@@ -1,3 +1,5 @@
+local Keys = require("prefs.keymap.plug.LSP_Keys").Aerial
+
 local options = {
   backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
   manage_folds = "auto",
@@ -18,8 +20,8 @@ local options = {
   -- optionally use on_attach to set keymaps when aerial has attached to a buffer
   on_attach = function(bufnr)
     -- Jump forwards/backwards with '{' and '}'
-    vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-    vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+    vim.keymap.set("n", Keys.AerialPrev, "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", Keys.AerialNext, "<cmd>AerialNext<CR>", { buffer = bufnr })
   end,
   -- List of filetypes to ignore.
   filetypes = {},
@@ -36,7 +38,7 @@ return {
   -- dependencies = dependencies,
   config = function()
     require("aerial").setup(options) -- You probably also want to set a keymap to toggle aerial
-    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    vim.keymap.set("n", Keys.AeriealToggle, "<cmd>AerialToggle!<CR>")
   end,
 }
 

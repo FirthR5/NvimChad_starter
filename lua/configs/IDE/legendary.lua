@@ -2,10 +2,7 @@
 local M = {}
 local options = {
 
-  keymaps = {
-    -- TODO: Add Personalized Keybindings \\ https://github.com/mrjones2014/legendary.nvim?tab=readme-ov-file#quickstart
-    { "<leader>Lk", ":Legendary keymaps<CR>", description = "Legendary: Keymaps" },
-  },
+  keymaps = require("prefs.keymap.plug.IDE_Keys").legendary,
   autocmds = {
     -- Create autocmds and augroups
     { "BufWritePre", vim.lsp.buf.format, description = "Format on save" },
@@ -30,6 +27,7 @@ local options = {
     --     resize = "<M>",
     --   },
     -- },
+
     -- https://github.com/mrjones2014/smart-splits.nvim
     -- load commands from op.nvim
     op_nvim = true,

@@ -18,20 +18,13 @@ function Dependencies()
     "nvim-lua/plenary.nvim", -- Default by NvChad
   }
 end
--- setting the keybinding for LazyGit with 'keys' is recommended in
--- order to load the plugin when the command is run for the first time
-function MyKeys()
-  return {
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-  }
-end
 
 local M = {}
 M = {
   "kdheepak/lazygit.nvim",
   cmd = Cmd(),
   dependencies = Dependencies(),
-  keys = MyKeys(),
+  keys = require("prefs.keymap.plug.EXT_MISC").lazygit,
   -- config = require("configs.EXT.lazygit").setup(),
 }
 return M

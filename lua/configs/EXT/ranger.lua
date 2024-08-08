@@ -3,6 +3,7 @@ local M = {}
 
 M = {
   "kelly-lin/ranger.nvim",
+  event = "VeryLazy",
   config = function()
     local ranger_nvim = require "ranger-nvim"
     local opts = {
@@ -24,13 +25,7 @@ M = {
     }
     ranger_nvim.setup(opts)
 
-    vim.api.nvim_set_keymap("n", "<leader>fe", "", {
-      desc = "open ranger",
-      noremap = true,
-      callback = function()
-        require("ranger-nvim").open(true)
-      end,
-    })
+    require("prefs.keymap.plug.EXT_MISC").ranger()
   end,
 }
 
