@@ -12,6 +12,12 @@ local options = {
       signature = { enabled = false }, -- <-- HERE!
     },
   },
+  progress = {
+    enabled = true,
+  },
+  hover = {
+    enabled = false,
+  },
   presets = {
     bottom_search = true, -- use a classic bottom cmdline for search
     command_palette = true, -- position the cmdline and popupmenu together
