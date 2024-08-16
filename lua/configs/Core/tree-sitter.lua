@@ -22,7 +22,7 @@ local options = {
   -- ft=config_treesitter.fts(),
 }
 
-function setup()
+function TS_setup()
   vim.opt.foldmethod = "expr"
   vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
   vim.o.foldlevel = 4
@@ -30,6 +30,18 @@ function setup()
   -- vim.o.foldnestmax = 0
   -- vim.opt.foldmethod="indent"
 
+  -- vim.filetype.add {
+  --   extension = {
+  --     git = { "gitconfig", "gitignore" },
+  --   },
+  --   filename = {
+  --     [".init.gitconfig"] = "gitconfig",
+  --   },
+  -- }
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "*.gitconfig" },
+    command = "set filetype=gitconfig",
+  })
   -- https://andrewcourter.substack.com/p/code-folding-in-neovim
   -- zc - Close (fold) the current fold under the cursor.
   -- zo - Open (unfold) the current fold under the cursor.
@@ -37,7 +49,7 @@ function setup()
   -- zR - Open all folds in the current buffer.
   -- zM - Close all folds in the current buffer.
 end
-
+-- vim.treesitter.language.register("git_config", { "gitconfig", "gitconfig" })
 local M = {}
 M = {
   "nvim-treesitter/nvim-treesitter",
@@ -45,7 +57,7 @@ M = {
   opts = { ensure_installed = inst_TS, opts = options },
   event = { "BufRead", "BufWinEnter", "BufNewFile" },
   dependencies = require "configs.Syntax.LSP_cmp.tsAutoTag",
-  config = setup(),
+  -- config = TS_setup(),
 }
 
 return M
