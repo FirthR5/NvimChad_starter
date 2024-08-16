@@ -28,6 +28,9 @@ return {
   require "configs.IDE.goto_preview",
   require "configs.IDE.indent_blankline",
   require "configs.IDE.auto-session",
+  require "configs.IDE.markview",
+  require "configs.IDE.timespent",
+
   -- {
   --   -- dim inactive windows
   --   "andreadev-it/shade.nvim",

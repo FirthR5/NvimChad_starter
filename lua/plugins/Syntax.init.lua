@@ -36,6 +36,7 @@ local snippets = {
 
   --lspkind,
   -- vimrazor,
+  -- template: https://github.com/nvimdev/template.nvim
 
   denseAnalaysisALE,
 }

@@ -1,7 +1,7 @@
 local trouble = require "configs.EXT.trouble"
 local ranger = require "configs.EXT.ranger"
-local lazygit = require "configs.EXT.lazygit"
-local gitsigns = require "configs.EXT.gitsigns"
+local lazygit = require "configs.EXT.GIT.lazygit"
+local gitsigns = require "configs.EXT.GIT.gitsigns"
 --local dadbotUI = require "configs.EXT.dadbotUI"
 local web_tools = require "configs.EXT.web_tools"
 
