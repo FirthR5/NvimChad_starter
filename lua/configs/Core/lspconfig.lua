@@ -7,7 +7,10 @@ local lspconfig = require "lspconfig"
 -- ===================================================
 
 -- References: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
--- ============== Setup Default Servers =====================
+-- ===================================
+-- ╭──────────────────────────────────────────────────────────╮
+-- │  Setup Default Servers                                   │
+-- ╰──────────────────────────────────────────────────────────╯
 local servers = {
   -- ===================================================
   -- Defaults SHELL
@@ -59,7 +62,7 @@ local servers = {
 
   -- ============================================================
   -- Text Processors
-  "jsonls",
+  -- "jsonls", -- Custom Config
   -- "yamlls", -- Custom Config
   -- "r_language_server"
   --"azure_pipelines_ls",
@@ -100,14 +103,117 @@ local config_emmet_ls = {
   },
 }
 
-local config_yaml = {
+local common_config = {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+}
+
+-- https://github.com/b0o/SchemaStore.nvim
+local config_yaml = vim.tbl_deep_extend("force", common_config, {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   settings = {
     yaml = {
+      --  schemaStore = {
+      --   -- You must disable built-in schemaStore support if you want to use
+      --   -- this plugin and its advanced options like `ignore`.
+      --   enable = false,
+      --   -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+      --   url = "",
+      -- },
+      -- schemas = require('schemastore').yaml.schemas(),
       schemas = {
         ["https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json"] = "*.yaml",
+      },
+    },
+  },
+})
+
+local config_jsonls = vim.tbl_deep_extend("force", common_config, {
+  settings = {
+    json = {
+      -- schemas = require("schemastore").json.schemas(),
+      schemas = {
+        {
+          fileMatch = { "package.json" },
+          url = "https://json.schemastore.org/package.json",
+        },
+        {
+          fileMatch = { "tsconfig*.json" },
+          url = "https://json.schemastore.org/tsconfig.json",
+        },
+        {
+          fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
+          url = "https://json.schemastore.org/prettierrc.json",
+        },
+        {
+          fileMatch = { ".eslintrc", ".eslintrc.json" },
+          url = "https://json.schemastore.org/eslintrc.json",
+        },
+        {
+          fileMatch = { ".babelrc", ".babelrc.json", "babel.config.json" },
+          url = "https://json.schemastore.org/babelrc.json",
+        },
+        {
+          fileMatch = { "lerna.json" },
+          url = "https://json.schemastore.org/lerna.json",
+        },
+        {
+          fileMatch = { "now.json", "vercel.json" },
+          url = "https://json.schemastore.org/now.json",
+        },
+        {
+          fileMatch = { "appsettings.json", "appsettings.Development.json" },
+          -- description= "App Settings for Csharp .NET",
+          url = "https://json.schemastore.org/aspire-8.0.json",
+        },
+        {
+          fileMatch = { "ecosystem.json" },
+          url = "https://json.schemastore.org/pm2-ecosystem.json",
+        },
+      },
+
+      validate = { enable = true },
+    },
+  },
+})
+
+-- https://github.com/ChristianChiarulli/nvim/blob/master/lua/user/lspsettings/lua_ls.lua
+local config_Luals = {
+  settings = {
+    Lua = {
+      format = {
+        enable = false,
+      },
+      diagnostics = {
+        globals = { "vim", "spec" },
+      },
+      runtime = {
+        version = "LuaJIT",
+        special = {
+          spec = "require",
+        },
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.stdpath "config" .. "/lua"] = true,
+        },
+      },
+      hint = {
+        enable = false,
+        arrayIndex = "Disable", -- "Enable" | "Auto" | "Disable"
+        await = true,
+        paramName = "Disable", -- "All" | "Literal" | "Disable"
+        paramType = true,
+        semicolon = "All", -- "All" | "SameLine" | "Disable"
+        setType = false,
+      },
+      telemetry = {
+        enable = false,
       },
     },
   },
@@ -166,6 +272,7 @@ end
 -- ============== Setup Custom Configs =====================
 lspconfig.emmet_ls.setup(config_emmet_ls) -- lsps with default config
 lspconfig.yamlls.setup(config_yaml)
+lspconfig.jsonls.setup(config_jsonls) -- https://github.com/ecosse3/nvim/blob/master/lua/config/lsp/servers/jsonls.lua
 -- require("roslyn").setup(config_roslyn)
 -- =========================================================
 
