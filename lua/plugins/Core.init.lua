@@ -7,10 +7,12 @@ local plugins = {
   -- ==================================================================
   -- Default by NvChad
   -- ==================================================================/
-  -- - nvim-web-devicons.nvim
+  -- require "configs.Core.nvim-web-devicons",
   -- - nvim-tree.lua
   -- - which-key.nvim
+
   require "configs.Core.nvim-tree",
+  require "configs.Core.nvim-material-icon",
   {
     "neovim/nvim-lspconfig",
     config = function()

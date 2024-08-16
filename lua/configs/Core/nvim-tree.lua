@@ -7,29 +7,58 @@ local options = {
   -- on_attach = custom_on_attach,
   -- override = require "configs.Core.devicons",
   sync_root_with_cwd = true,
-  filters = { custom = { "^.git$" }, dotfiles = false },
   git = { enable = true },
+  filters = { custom = { "^.git$" }, dotfiles = false },
+  filesystem_watchers = {
+    ignore_dirs = {
+      "node_modules",
+    },
+  },
   renderer = {
+    add_trailing = false,
+    group_empty = false,
+    full_name = false,
+    symlink_destination = true,
+
     highlight_git = true,
     highlight_opened_files = "icon",
     special_files = { "README.md", "Makefile", "TODO" },
-    -- icons = {
-    --   glyphs = {
-    --     bookmark = "󰆤",
-    --     modified = "●",
-    --     folder = {
-    --       default = "",
-    --       open = "",
-    --       empty = "",
-    --       empty_open = "",
-    --     },
-    --   },
-    -- },
+    icons = {
+      glyphs = {
+        bookmark = "󰆤",
+        modified = "●",
+        symlink = "",
+        hidden = "󰜌",
+        folder = {
+          symlink = "",
+          arrow_closed = "",
+          arrow_open = "",
+          symlink_open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+        },
+      },
+      git_placement = "before",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+        modified = true,
+        hidden = false,
+        diagnostics = true,
+        bookmarks = true,
+      },
+    },
   },
+  -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
+
+  --   .gitconfig                  DevIconGitConfig                ctermfg=196 guifg=#f54d27
   view = {
     -- Allow statuscolumn to be applied on nvim-tree
     signcolumn = "no",
-
     centralize_selection = false,
     cursorline = true,
     debounce_delay = 15,
@@ -37,7 +66,8 @@ local options = {
     preserve_window_proportions = false,
     number = true,
     relativenumber = true,
-    width = 25,
+
+    -- width = 25,
     -- ============================================================
     -- Float Tree
     -- float = {
@@ -66,11 +96,6 @@ local options = {
     -- end,
     -- Float Tree
     -- ============================================================
-  },
-  filesystem_watchers = {
-    ignore_dirs = {
-      "node_modules",
-    },
   },
 }
 
