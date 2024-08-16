@@ -2,7 +2,18 @@ local M = {}
 
 -- https://github.com/norcalli/nvim-colorizer.lua
 local options = {
-  -- { "*" },
+  filetypes = {
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "lua",
+  },
+  user_default_options = {
+    mode = "background",
+  },
   css = {
     RRGGBBAA = true, -- #RRGGBBAA hex codes
     rgb_fn = true, -- CSS rgb() and rgba() functions
