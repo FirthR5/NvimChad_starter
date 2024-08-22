@@ -17,7 +17,7 @@ end
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
+M.base46 = {
   theme = "catppuccin", -- "rxyhn",
   theme_toggle = { "mountain", "one_light" },
   transparency = true,
@@ -94,7 +94,7 @@ M.ui = {
   cheatsheet = { theme = "grid" }, -- simple/grid
 }
 -- https://github.com/NvChad/NvChad/issues/1656
-M.ui.lsp = { signature = false }
+M.base46.lsp = { signature = false }
 
 return M
 
