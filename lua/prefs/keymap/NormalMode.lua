@@ -24,6 +24,7 @@ map("n", "te", "<cmd>tabedit<CR>", { desc = "Open New Tab" })
 map("n", "tn", "<cmd>tabnext<CR>", { desc = "Open Next Tab" })
 map("n", "tp", "<cmd>tabprev<CR>", { desc = "Open Previous Tab" })
 map("n", "tw", "<cmd>tabclose<CR>", { desc = "Close Current Tab" })
+map("n", "tx", "<cmd>tabclose<CR>", { desc = "Close Current Tab" })
 
 -- ==================================================================
 -- Extenal commands
