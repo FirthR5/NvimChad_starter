@@ -36,7 +36,7 @@ local servers = {
   -- Web Dev Front Frameworks
   -- "vuels", -- npm install -g vls
   "volar",
-  "angularls", -- Custom Config (because Windows)
+  --"angularls", -- Custom Config (because Windows)
   "tsserver",
   -- "typescript",
   --"typescriptreact", "typescript.tsx",
@@ -250,9 +250,9 @@ if is_windows then
     node_modules_global_path,
     "--includeCompletionsWithSnippetText",
     "--includeAutomaticOptionalChainCompletions",
-    "--logToConsole",
-    "--logFile",
-    angular_logs_path,
+    -- "--logToConsole",
+    -- "--logFile",
+    -- angular_logs_path,
   }
   local config_angularls = {
     cmd = ngls_cmd,
@@ -263,12 +263,39 @@ if is_windows then
       new_config.cmd = ngls_cmd
     end,
     filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-    root_dir = util.root_pattern ".git", --,"angular.json", "project.json"),
+    root_dir = util.root_pattern( ".git")
   }
 
   lspconfig.angularls.setup(config_angularls)
+
+  -- lspconfig.powershell_es.setup {
+  --   filetypes = { "ps1", "psm1", "psd1" },
+  --   bundle_path = "~/AppData/Local/nvim-data/mason/packages/powershell-editor-services",
+  --   settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
+  --   init_options = {
+  --     enableProfileLoading = false,
+  --   },
+  -- }
 else
   table.insert(servers, "angularls")
+-- VUE
+-- local options_vue = {
+--   init_options = {
+--     plugins = {
+--       {
+--         name = "@vue/typescript-plugin",
+--         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+--         languages = {"javascript", "typescript", "vue"},
+--       },
+--     },
+--   },
+--   filetypes = {
+--     "javascript",
+--     "typescript",
+--     "vue",
+--   },
+-- }
+
 end
 
 -- ============== Setup Custom Configs =====================
@@ -288,24 +315,6 @@ for _, lsp in ipairs(servers) do
 end
 
 -- VUE
--- local options_vue = {
---   init_options = {
---     plugins = {
---       {
---         name = "@vue/typescript-plugin",
---         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
---         languages = {"javascript", "typescript", "vue"},
---       },
---     },
---   },
---   filetypes = {
---     "javascript",
---     "typescript",
---     "vue",
---   },
--- }
---
---
 -- require'lspconfig'.tsserver.setup(options_vue)
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 -- You must make sure volar is setup
