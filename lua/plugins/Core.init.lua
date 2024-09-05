@@ -13,6 +13,7 @@ local plugins = {
 
   require "configs.Core.nvim-tree",
   require "configs.Core.nvim-material-icon",
+  -- ─────────────────────────────────────────────────────────────────────────────
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -42,6 +43,7 @@ local plugins = {
       require("configs.Core.telescope").Setup()
     end,
   },
+  -- ─────────────────────────────────────────────────────────────────────────────
 
   -- {
   --   "NvChad/nvterm",

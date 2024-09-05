@@ -21,6 +21,13 @@ return {
     end,
     desc = "[d]ebug [c]ontinue",
   },
+  -- {
+  --   "<leader>de",
+  --   function()
+  --     require("dap").eval()
+  --   end,
+  --   desc = "[d]ebug [e]val",
+  -- },
   {
     "<leader>da",
     function()

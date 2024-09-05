@@ -8,6 +8,7 @@ return {
   -- Default by NvChad
   -- ==================================================================
   require "configs.IDE.LSP_Aerial",
+
   {
     "rcarriga/nvim-notify",
     -- lazy = false,
@@ -22,7 +23,7 @@ return {
     dependencies = config_noice.dependencies(),
     config = config_noice.setup,
   },
-  -- ==================================================================
+  -- ─────────────────────────────────────────────────────────────────────────────
   require "configs.IDE.legendary",
   require "configs.Syntax.LSP_cmp.ng",
   require "configs.IDE.goto_preview",

@@ -18,7 +18,7 @@ end
 local M = {}
 
 M.base46 = {
-  theme = "catppuccin", -- "rxyhn",
+  theme = "onenord", -- "rxyhn",
   theme_toggle = { "mountain", "one_light" },
   transparency = true,
 
