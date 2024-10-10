@@ -37,7 +37,7 @@ local servers = {
   -- "vuels", -- npm install -g vls
   "volar",
   --"angularls", -- Custom Config (because Windows)
-  "tsserver",
+  "ts_ls",
   -- "typescript",
   --"typescriptreact", "typescript.tsx",
 
@@ -69,6 +69,7 @@ local servers = {
   -- "r_language_server"
   --"azure_pipelines_ls",
   --"clangd",
+  -- "lemminx",
   -- ===================================================
 }
 
@@ -133,6 +134,7 @@ local config_yaml = vim.tbl_deep_extend("force", common_config, {
   },
 })
 
+-- lspconfig.lemminx.setup(config_xmlls)
 local config_jsonls = vim.tbl_deep_extend("force", common_config, {
   settings = {
     json = {
@@ -263,7 +265,7 @@ if is_windows then
       new_config.cmd = ngls_cmd
     end,
     filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-    root_dir = util.root_pattern( ".git")
+    root_dir = util.root_pattern ".git",
   }
 
   lspconfig.angularls.setup(config_angularls)
@@ -278,24 +280,6 @@ if is_windows then
   -- }
 else
   table.insert(servers, "angularls")
--- VUE
--- local options_vue = {
---   init_options = {
---     plugins = {
---       {
---         name = "@vue/typescript-plugin",
---         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
---         languages = {"javascript", "typescript", "vue"},
---       },
---     },
---   },
---   filetypes = {
---     "javascript",
---     "typescript",
---     "vue",
---   },
--- }
-
 end
 
 -- ============== Setup Custom Configs =====================
@@ -314,13 +298,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- VUE
--- require'lspconfig'.tsserver.setup(options_vue)
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
--- You must make sure volar is setup
--- e.g. require'lspconfig'.volar.setup{}
--- See volar's section for more information
-
+--────────────────────────────────────────────────────────────────────────────────────
 -- Refernces
 --
 -- Angular
