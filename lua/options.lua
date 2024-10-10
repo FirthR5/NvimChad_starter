@@ -69,6 +69,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.gitconfig" },
   command = "set filetype=gitconfig",
 })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.xaml" },
+  command = "set filetype=xml",
+})
 -- ─────────────────────────────────────────────────────────────────────────────
 
 -- ==================================================================
