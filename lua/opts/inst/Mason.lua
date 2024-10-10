@@ -79,6 +79,7 @@ local inst_mason = {
   "yamlfix",
   "yaml-language-server",
   "xmlformatter",
+  "lemminx",
   "jsonlint",
   "json-lsp",
   --"deno",
