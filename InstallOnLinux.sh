@@ -1,7 +1,11 @@
 #                         Start
 # ───────────────────────────────────────────────────────────
 # Install NPM
-sudo pacman -S npm
+if [[ -n $(command -v pacman) ]]; then
+    sudo pacman -S npm
+elif [[ -n $(command -v apt)]]; then
+    sudo apt install npm
+fi
 
 #                     Remove Artifacts
 # ───────────────────────────────────────────────────────────
@@ -10,22 +14,28 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 
 # Symbolic Link
-ln -s /mnt/Dev_Sys/_Config/_Cross/NvimChad_starter/ /home/dart7/.config/nvim
-       
+root_path=$(pwd)
+ln -s $root_path ~/.config/nvim
+
+
 #           Install some pluggins for LSP
 # ───────────────────────────────────────────────────────────
 # Bash
 sudo npm i -g bash-language-server
 # Lua Vim
 sudo npm install -g vim-language-server
-sudo pacman -S lua-language-server
+if [[ -n $(command -v pacman) ]]; then
+    sudo pacman -S lua-language-server
+elif [[ -n $(command -v brew) ]]; then
+    brew install lua-language-server
+fi
 # VS Code Html
 sudo npm install -g emmet-ls
 sudo npm i -g prettier
 # Python
 sudo npm install -g pyright
 # pip install python-lsp-server
-# SQL LS    
+# SQL LS
 npm i -g sql-language-server
 #                           End
 # ───────────────────────────────────────────────────────────
