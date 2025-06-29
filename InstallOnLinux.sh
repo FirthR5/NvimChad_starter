@@ -15,8 +15,6 @@ rm -rf ~/.local/share/nvim
 
 # Symbolic Link
 root_path=$(pwd)
-
-
 rm -rf ~/.config/nvim
 # ln -s $root_path ~/.config/nvim
 ln -s $or_DF_Root/_Cross/Vim/nvim/NvimChad_starter ~/.config/nvim
