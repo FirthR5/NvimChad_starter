@@ -10,8 +10,10 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 
 # Symbolic Link
-ln -s /mnt/Dev_Sys/_Config/_Cross/NvimChad_starter/ /home/dart7/.config/nvim
-       
+
+rm -rf ~/.config/nvim
+ln -s $or_DF_Root/_Cross/Vim/nvim/NvimChad_starter ~/.config/nvim
+
 #           Install some pluggins for LSP
 # ───────────────────────────────────────────────────────────
 # Bash
@@ -25,7 +27,7 @@ sudo npm i -g prettier
 # Python
 sudo npm install -g pyright
 # pip install python-lsp-server
-# SQL LS    
+# SQL LS
 npm i -g sql-language-server
 #                           End
 # ───────────────────────────────────────────────────────────
