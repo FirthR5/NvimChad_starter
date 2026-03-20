@@ -1,2 +1,0 @@
--- https://nicolaiarocci.com/making-csharp-and-omnisharp-play-well-with-neovim/
---

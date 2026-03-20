@@ -1,3 +1,0 @@
--- https://github.com/julienvincent/hunk.nvim
--- Otros TODO:
--- https://dotfyle.com/plugins/jmattaa/quickmark.nvim

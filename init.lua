@@ -12,7 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-local lazy_config = require "configs.lazy"
+local lazy_config = require "config.lazy"
 
 -- Load Plugins
 require("lazy").setup({

@@ -3,7 +3,7 @@
 # Install NPM
 if [[ -n $(command -v pacman) ]]; then
     sudo pacman -S npm
-elif [[ -n $(command -v apt)]]; then
+elif [[ -n $(command -v apt) ]]; then
     sudo apt install npm
 fi
 

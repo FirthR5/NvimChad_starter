@@ -6,7 +6,7 @@
 local M = {}
 
 -- Import All Logos i saved
-local logos = require "prefs.MenuLogo"
+local logos = require "util.logo"
 
 -- Cancatenate two logos
 local function concatWithSpace(list1, list2)
