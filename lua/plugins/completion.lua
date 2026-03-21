@@ -100,24 +100,25 @@ return {
   },
 
   -- ─── GitHub Copilot (core) ────────────────────────────────────────────────
+  -- NOTE: Kept for CopilotChat dependency. Autocompletion disabled.
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
+    lazy = true,
     config = function()
       require("copilot").setup {
         suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          keymap = {
-            accept = false,       -- handled in Tab (keymaps/completion.lua)
-            accept_word = "<M-k>",
-            accept_line = "<M-j>",
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
-        },
+          enabled = false
+          --enabled = true,
+          --auto_trigger = true,
+          --keymap = {
+            --accept = false,       -- handled in Tab (keymaps/completion.lua)
+            --accept_word = "<M-k>",
+           -- accept_line = "<M-j>",
+           -- next = "<M-]>",
+          --  prev = "<M-[>",
+            --dismiss = "<C-]>",
+        --  },
         --keymap = {
         --accept = "<C-Tab>",    -- Ctrl+Tab aceptar sugerencia completa
         --accept_word = "<C-Right>", -- Ctrl+Right aceptar palabra
@@ -126,9 +127,8 @@ return {
         --prev = "<C-Up>",           -- Ctrl+Up anterior
         --dismiss = "<C-]>",
           --},
-        panel = {
-          enabled = false,
         },
+        panel = { enabled = false },
         filetypes = {
           markdown = true,
           yaml = true,
@@ -138,15 +138,15 @@ return {
     end,
   },
 
-  -- ─── Copilot → nvim-cmp source ───────────────────────────────────────────
-  {
-    "zbirenbaum/copilot-cmp",
-    after = "copilot.lua",
-    dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
+  -- ─── Copilot → nvim-cmp source (disabled) ────────────────────────────────
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = "copilot.lua",
+  --   dependencies = { "zbirenbaum/copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
 
   -- ─── Copilot Chat ─────────────────────────────────────────────────────────
   {

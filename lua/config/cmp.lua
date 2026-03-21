@@ -27,7 +27,7 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "󰉺",
-  Copilot = "",
+  -- Copilot = "",
 }
 
 local options = {
@@ -47,13 +47,13 @@ local options = {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        copilot = "[Copilot]",
+        -- copilot = "[Copilot]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
-    { name = "copilot", group_index = 2 },
+    -- { name = "copilot", group_index = 2 },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
