@@ -40,8 +40,9 @@ return {
   -- ─── LSP ───────────────────────────────────────────────────────────────────
   {
     "neovim/nvim-lspconfig",
+    event = "User FilePost",
     config = function()
-      require("config.lsp").setup()
+      require "config.lsp"
     end,
   },
   {

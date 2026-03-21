@@ -8,6 +8,13 @@ local on_attach = nvlsp.on_attach
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
 local lspconfig = require "lspconfig"
+
+-- LspAttach keymaps (replaces the part of defaults() that uses 0.11-only APIs)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    on_attach(nil, args.buf)
+  end,
+})
 -- ===================================================
 
 -- References: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
