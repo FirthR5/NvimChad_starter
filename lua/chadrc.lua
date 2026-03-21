@@ -53,7 +53,9 @@ M.base46 = {
     --TblineFill = { link = "Normal" },
     -- NvimTreeRootFolder = { link = "NvimTreeFolderName" },
   },
+}
 
+M.ui = {
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
@@ -63,13 +65,11 @@ M.base46 = {
   tabufline = {
     enabled = true,
     order = { "treeOffset", "buffers", "tabs", "btns" },
-    modules = {
-      blank = function()
-        return "%#Normal#" .. "%=" -- empty space
-      end,
-    },
+    modules = nil,
   },
-  term = {
+}
+
+M.term = {
     hl = "Normal:term,WinSeparator:WinSeparator",
     sizes = { sp = 0.1, vsp = 0.1 },
     float = {
@@ -80,26 +80,38 @@ M.base46 = {
       height = 0.4,
       border = "single",
     },
-  },
+}
 
-  nvdash = {
+M.nvdash = {
     load_on_startup = true,
     header = logos["chad"],
     -- header = concatWithSpace(logos["CR7"], logos["nvim"]),
 
     buttons = {
-      { "  Find File", "Spc f f", "Telescope find_files" },
-      { "󰈚  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
-      { "  Bookmarks", "Spc m a", "Telescope marks" },
-      { "  Themes", "Spc t h", "Telescope themes" },
-      { "  Mappings", "Spc c h", "NvCheatsheet" },
+      { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
+      { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
+      { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+      { txt = "  Bookmarks", keys = "ma", cmd = "Telescope marks" },
+      { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
+      { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+
+      { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+
+      {
+        txt = function()
+          local stats = require("lazy").stats()
+          local ms = math.floor(stats.startuptime) .. " ms"
+          return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+        end,
+        hl = "NvDashFooter",
+        no_gap = true,
+        content = "fit",
+      },
     },
-  },
-  cheatsheet = { theme = "grid" }, -- simple/grid
 }
--- https://github.com/NvChad/NvChad/issues/1656
-M.base46.lsp = { signature = false }
+
+M.cheatsheet = { theme = "grid" } -- simple/grid
+M.lsp = { signature = false }
 
 return M
 

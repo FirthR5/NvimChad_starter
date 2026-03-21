@@ -1,5 +1,6 @@
--- load defaults i.e lua_lsp
-require('nvchad.configs.lspconfig').defaults()
+-- load NvChad LSP defaults (compatible with Neovim 0.10)
+dofile(vim.g.base46_cache .. "lsp")
+require("nvchad.lsp").diagnostic_config()
 
 -- ===================================================
 local nvlsp = require "nvchad.configs.lspconfig"
