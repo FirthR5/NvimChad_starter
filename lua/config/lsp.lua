@@ -1,31 +1,23 @@
--- load NvChad LSP defaults (compatible with Neovim 0.10)
-dofile(vim.g.base46_cache .. "lsp")
-require("nvchad.lsp").diagnostic_config()
+-- NvChad LSP defaults: loads cache, diagnostics, LspAttach autocmd,
+-- vim.lsp.config("*") with capabilities/on_init, and lua_ls
+require("nvchad.configs.lspconfig").defaults()
 
 -- ===================================================
 local nvlsp = require "nvchad.configs.lspconfig"
 local on_attach = nvlsp.on_attach
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
-local lspconfig = require "lspconfig"
-
--- LspAttach keymaps (replaces the part of defaults() that uses 0.11-only APIs)
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    on_attach(nil, args.buf)
-  end,
-})
 -- ===================================================
 
 -- References: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#biome
 -- ╭──────────────────────────────────────────────────────────╮
--- │  Setup Default Servers                                   │
+-- │  Servers with default config (inherit from "*")          │
 -- ╰──────────────────────────────────────────────────────────╯
 local servers = {
   -- ===================================================
   -- Defaults SHELL
   "bashls", -- npm i -g bash-language-server
-  "lua_ls",
+  -- "lua_ls", -- already enabled by NvChad defaults()
   "vimls",
 
   -- ===================================================
@@ -36,7 +28,7 @@ local servers = {
   -- Web Dev Basics
   "html",
   "cssls",
-  -- "emmetls", -- Custom Config
+  -- "emmetls", -- Custom Config below
 
   -- ============================================================
   -- Web Dev Front Frameworks
@@ -55,9 +47,12 @@ local servers = {
   "pylsp",
 }
 
--- ============== Setup Configs =====================
-local config_emmet_ls = {
-  capabilities = capabilities,
+-- ╭──────────────────────────────────────────────────────────╮
+-- │  Custom server configs (vim.lsp.config)                  │
+-- ╰──────────────────────────────────────────────────────────╯
+
+-- emmet_ls
+vim.lsp.config("emmet_ls", {
   filetypes = {
     "css",
     "eruby",
@@ -78,19 +73,10 @@ local config_emmet_ls = {
       },
     },
   },
-}
-
-local common_config = {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
+})
 
 -- https://github.com/b0o/SchemaStore.nvim
-local config_yaml = vim.tbl_deep_extend("force", common_config, {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+vim.lsp.config("yamlls", {
   settings = {
     yaml = {
       schemas = {
@@ -100,7 +86,7 @@ local config_yaml = vim.tbl_deep_extend("force", common_config, {
   },
 })
 
-local config_jsonls = vim.tbl_deep_extend("force", common_config, {
+vim.lsp.config("jsonls", {
   settings = {
     json = {
       schemas = {
@@ -146,7 +132,7 @@ local config_jsonls = vim.tbl_deep_extend("force", common_config, {
   },
 })
 
-local config_Luals = {
+vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
       format = { enable = false },
@@ -174,15 +160,16 @@ local config_Luals = {
       telemetry = { enable = false },
     },
   },
-}
+})
 
--- ============== Setup Angular Config on Windows =====================
-local is_windows = vim.loop.os_uname().version:match "Windows"
+-- ╭──────────────────────────────────────────────────────────╮
+-- │  Angular on Windows (custom cmd/root_dir)                │
+-- ╰──────────────────────────────────────────────────────────╯
+local is_windows = vim.uv.os_uname().version:match "Windows"
 
 if is_windows then
   local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
   local angular_language_server_path = mason_packages .. "/angular-language-server/node_modules/.bin/ngserver.CMD"
-  local util = require "lspconfig.util"
   local node_modules_global_path = "C:/Users/RFF-07/AppData/Roaming/npm/node_modules"
 
   local ngls_cmd = {
@@ -195,33 +182,28 @@ if is_windows then
     "--includeCompletionsWithSnippetText",
     "--includeAutomaticOptionalChainCompletions",
   }
-  local config_angularls = {
+
+  vim.lsp.config("angularls", {
     cmd = ngls_cmd,
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
     on_new_config = function(new_config, _)
       new_config.cmd = ngls_cmd
     end,
     filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-    root_dir = util.root_pattern ".git",
-  }
-
-  lspconfig.angularls.setup(config_angularls)
+    root_markers = { ".git" },
+  })
 else
   table.insert(servers, "angularls")
 end
 
--- ============== Setup Custom Configs =====================
-lspconfig.emmet_ls.setup(config_emmet_ls)
-lspconfig.yamlls.setup(config_yaml)
-lspconfig.jsonls.setup(config_jsonls)
+-- ╭──────────────────────────────────────────────────────────╮
+-- │  Enable all servers                                      │
+-- ╰──────────────────────────────────────────────────────────╯
+-- Custom-configured servers
+vim.lsp.enable { "emmet_ls", "yamlls", "jsonls" }
 
--- ============== Setup Configs =====================
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+if is_windows then
+  vim.lsp.enable "angularls"
 end
+
+-- Default servers (inherit capabilities/on_init from "*")
+vim.lsp.enable(servers)

@@ -98,4 +98,91 @@ return {
       }
     end,
   },
+
+  -- ─── GitHub Copilot (core) ────────────────────────────────────────────────
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = false,       -- handled in Tab (keymaps/completion.lua)
+            accept_word = "<M-k>",
+            accept_line = "<M-j>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        --keymap = {
+        --accept = "<C-Tab>",    -- Ctrl+Tab aceptar sugerencia completa
+        --accept_word = "<C-Right>", -- Ctrl+Right aceptar palabra
+        --waccept_line = "<C-l>",     -- Ctrl+l aceptar línea
+        --next = "<C-Down>",         -- Ctrl+Down siguiente
+        --prev = "<C-Up>",           -- Ctrl+Up anterior
+        --dismiss = "<C-]>",
+          --},
+        panel = {
+          enabled = false,
+        },
+        filetypes = {
+          markdown = true,
+          yaml = true,
+          ["."] = false,
+        },
+      }
+    end,
+  },
+
+  -- ─── Copilot → nvim-cmp source ───────────────────────────────────────────
+  {
+    "zbirenbaum/copilot-cmp",
+    after = "copilot.lua",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+
+  -- ─── Copilot Chat ─────────────────────────────────────────────────────────
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
+    build = "make tiktoken",
+    cmd = { "CopilotChat", "CopilotChatToggle", "CopilotChatExplain", "CopilotChatFix" },
+    opts = {
+      window = {
+        layout = "vertical",
+        width = 0.35,
+      },
+    },
+    keys = {
+        { "<leader>cpc", "<cmd>CopilotChatToggle<cr>", desc = "Copilot Chat Toggle" },
+        { "<leader>cpe", "<cmd>CopilotChatExplain<cr>", mode = "v", desc = "Copilot Explain" },
+        { "<leader>cpf", "<cmd>CopilotChatFix<cr>", mode = "v", desc = "Copilot Fix" },
+        { "<leader>cpr", "<cmd>CopilotChatReview<cr>", mode = "v", desc = "Copilot Review" },
+        { "<leader>cpo", "<cmd>CopilotChatOptimize<cr>", mode = "v", desc = "Copilot Optimize" },
+        { "<leader>cpt", "<cmd>CopilotChatTests<cr>", mode = "v", desc = "Copilot Tests" },
+        -- Copilot status
+        { "<leader>cpst", "<cmd>Copilot status<cr>", desc = "Copilot Status" },
+        -- Copilot Version
+        { "<leader>cpv", "<cmd>Copilot version<cr>", desc = "Copilot Version" },
+        -- Model
+        { "<leader>cpm", "<cmd>Copilot model<cr>", desc = "Copilot Model" },
+        -- panel
+        { "<leader>cpp", "<cmd>Copilot panel<cr>", desc = "Copilot Panel Toggle" },
+        -- suggestion
+        { "<leader>cpsu", "<cmd>Copilot suggest<cr>", desc = "Copilot Suggest" },
+        -- toggle
+        { "<leader>cptg", "<cmd>Copilot toggle<cr>", desc = "Copilot Toggle Greet" },
+        -- CopilotChatModels
+        { "<leader>cpcm", "<cmd>CopilotChatModels<cr>", desc = "Copilot Chat Models" },
+
+
+    },
+  },
 }

@@ -5,7 +5,6 @@ return {
   -- ─── Aerial ────────────────────────────────────────────────────────────────
   {
     "stevearc/aerial.nvim",
-    tag = "v2.7.0", -- last version supporting Neovim <0.11
     lazy = true,
     config = function()
       require("config.aerial").setup()
