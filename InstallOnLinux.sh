@@ -40,3 +40,5 @@ sudo npm install -g pyright
 npm i -g sql-language-server
 #                           End
 # ───────────────────────────────────────────────────────────
+# ...vim/0.11.6/share/nvim/runtime/lua/vim/lsp/_transport.lua:68: Spawning language server with cmd: `{ "csharp-ls" }` failed. The language server is either not installed, missing from PATH, or not executable.
+dotnet tool install --global csharp-ls
