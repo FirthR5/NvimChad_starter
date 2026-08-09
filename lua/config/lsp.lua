@@ -85,7 +85,24 @@ vim.lsp.config("yamlls", {
     },
   },
 })
-
+vim.lsp.config("taplo", {
+  capabilities = capabilities,
+  settings = {
+    taplo = {
+      filetypes = { "toml" },
+      schemas = {
+        ["https://raw.githubusercontent.com/NikitaVoloboev/aerospace/master/schema.json"] = ".aerospace.toml",
+        ["https://raw.githubusercontent.com/alacritty/alacritty/master/alacritty.toml.json"] = "alacritty.toml",
+        ["https://raw.githubusercontent.com/sxyazi/yazi/main/schema.json"] = "yazi.toml",
+        ["https://raw.githubusercontent.com/sanding-sand/superfile/main/schema.json"] = "superfile.toml",
+      },
+    },
+  },
+  on_attach = function(client, bufnr)
+    vim.keymap.set("n", "gd", "<cmd>Lspsymbol definition<cr>", { buffer = bufnr })
+    vim.keymap.set("n", "gr", "<cmd>Lspsymbol references<cr>", { buffer = bufnr })
+  end,
+})
 vim.lsp.config("jsonls", {
   settings = {
     json = {
