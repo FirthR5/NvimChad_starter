@@ -1,1 +1,22 @@
-ctrl+w: It's the super of nvchad
+- ctrl+w: It's the super of nvchad
+- <M-i>: Floating Terminal
+
+CMD:
+- TreeSitter: ":TSInstallAll" or ":TSUpdate"
+
+'space'+
+- o+o: Dashboard
+- ch: Keymaps
+- ff: Telescope
+- th: Themes
+- ds: LSP
+- mm: Mason
+- wk: Which Key Search
+- ts: Time Spent
+- Lk: Legendary
+- ml: Lazy Packer
+- mt: Telescope 1
+- tt: Telescope 2
+- dt: Trouble
+- :
+
