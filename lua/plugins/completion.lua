@@ -101,7 +101,7 @@ return {
 
   -- ─── GitHub Copilot (core) ────────────────────────────────────────────────
   -- NOTE: Kept for CopilotChat dependency. Autocompletion disabled.
-  {
+  --[[{
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     lazy = true,
@@ -184,5 +184,5 @@ return {
 
 
     },
-  },
+  },]]--
 }

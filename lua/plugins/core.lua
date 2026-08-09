@@ -79,6 +79,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = require "data.telescope-deps",
+    --keys = require("keymaps.telescope").telescope,
     config = function()
       require("config.telescope").setup()
     end,

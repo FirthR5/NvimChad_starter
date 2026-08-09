@@ -7,7 +7,6 @@ local TreeSitter_install = {
   "luadoc",
   "bash",
   "awk",
-  "dockerfile",
   "hurl",
   "jq",
   "ssh_config",
@@ -19,16 +18,15 @@ local TreeSitter_install = {
   "html",
   "css",
   "javascript",
+  "typescript",
 
   -- ============================================================
   -- Web Dev Front Frameworks
-  "typescript",
   "tsx",
   "angular",
   "vue",
   "scss",
   "http",
-  "scss",
   "htmldjango",
 
   -- ============================================================
@@ -36,8 +34,8 @@ local TreeSitter_install = {
   "c_sharp",
   "php",
   "python",
-  "sql",
   -- "graphql",
+  "dockerfile",
 
   -- ============================================================
   -- Low Level
@@ -61,7 +59,6 @@ local TreeSitter_install = {
   "xml",
   "csv",
   "tsv",
-  "http",
   "jsdoc",
   "json",
   "regex",
