@@ -101,7 +101,7 @@ return {
 
   -- ─── GitHub Copilot (core) ────────────────────────────────────────────────
   -- NOTE: Kept for CopilotChat dependency. Autocompletion disabled.
-  {
+  --[[{
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     lazy = true,
@@ -136,7 +136,7 @@ return {
         },
       }
     end,
-  },
+  },--]]
 
   -- ─── Copilot → nvim-cmp source (disabled) ────────────────────────────────
   -- {
@@ -149,8 +149,11 @@ return {
   -- },
 
   -- ─── Copilot Chat ─────────────────────────────────────────────────────────
+  --[[
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled=false,
+    lazy = true,
     dependencies = { "zbirenbaum/copilot.lua", "nvim-lua/plenary.nvim" },
     build = "make tiktoken",
     cmd = { "CopilotChat", "CopilotChatToggle", "CopilotChatExplain", "CopilotChatFix" },
@@ -185,4 +188,5 @@ return {
 
     },
   },
+  --]]
 }
