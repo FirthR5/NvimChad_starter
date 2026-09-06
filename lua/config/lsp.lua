@@ -34,7 +34,7 @@ local servers = {
   -- Web Dev Front Frameworks
   -- "vuels", -- npm install -g vls
   "volar",
-  --"angularls", -- Custom Config (because Windows)
+  "angularls", -- Custom Config (because Windows)
   "ts_ls",
 
   -- ============================================================
