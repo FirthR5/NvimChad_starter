@@ -102,7 +102,6 @@ return {
   -- ─── Markview ──────────────────────────────────────────────────────────────
   {
     "OXY2DEV/markview.nvim",
-    branch = "dev",
     lazy = false,
     ft = "markdown",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
