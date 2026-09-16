@@ -63,6 +63,12 @@ M.tmux_nav = {
   { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
   { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
   { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+  -- Resize Tmux with Alt- Arrow Keys
+  --[[{ "<M-Up>", "<cmd><C-U>TmuxResizeUp<cr>" },
+  { "<M-Down>", "<cmd><C-U>TmuxResizeDown<cr>" },
+  { "<M-Left>", "<cmd><C-U>TmuxResizeLeft<cr>" },
+  { "<M-Right>", "<cmd><C-U>TmuxResizeRight<cr>" },
+  ]]
 }
 
 -- ╭──────────────────────────────────────────────────────────╮

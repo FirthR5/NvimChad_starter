@@ -20,8 +20,9 @@ opt.clipboard = "unnamedplus"
 -- ==================================================================
 -- Numbers and Tabs
 -- ==================================================================
-o.expandtab = true
-o.relativenumber = true
+opt.expandtab = true
+opt.number = true
+opt.relativenumber = true
 opt.smarttab = true
 -- ==================================================================
 

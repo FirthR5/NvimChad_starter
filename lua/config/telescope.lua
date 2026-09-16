@@ -14,6 +14,15 @@ local options = {
       auto_quoting = true,
       mappings = require("keymaps.telescope").live_grep_args,
     },
+    file_explorer = {
+      theme = "ivy",
+      hijack_netrw = true,
+      group_folders = true,
+      --mappings = require("keymaps.telescope").file_explorer,
+      mappings = {
+        ["<CR>"] = "file_browser_execute",
+      },
+    },
   },
 }
 
