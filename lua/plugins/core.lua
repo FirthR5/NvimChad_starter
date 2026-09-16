@@ -3,10 +3,6 @@ local mason_ensure = require "data.mason-ensure"
 local ts_config = require "config.treesitter"
 
 return {
-  -- ─── Blink.cmp (NvChad integration, testing for 2 months) ─────────────────
-  -- https://github.com/NvChad/NvChad/discussions/3244
-  { import = "nvchad.blink.lazyspec" },
-
   -- ─── NvimTree ──────────────────────────────────────────────────────────────
   {
     "nvim-tree/nvim-tree.lua",
